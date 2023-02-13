@@ -1,4 +1,10 @@
 {
   "name": "ToolBox",
-  "private": "true"
+  "private": "true",
+  "devDependencies": {
+    "@types/react": "^18.0.28"
+  },
+  "dependencies": {
+    "bulma": "^0.9.4"
+  }
 }
