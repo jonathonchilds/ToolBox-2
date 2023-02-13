@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     >
       <div className="navbar-brand">
         <a className="navbar-item" href="#">
-          <h1 className="title is-4">My App</h1>
+          <h1 className="title is-4">ToolBox</h1>
         </a>
       </div>
 

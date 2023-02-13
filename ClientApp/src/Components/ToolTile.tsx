@@ -1,31 +1,59 @@
 import React from 'react'
-import mitersaw from '../images/dewalt_miter_saw.jpeg'
-import 'bulma/css/bulma.css'
 
-function ToolTile() {
+interface ToolProps {
+  tool: {
+    id: number
+    name: string
+    description: string
+    price: number
+    owner: string
+    imageUrl: string
+  }
+}
+
+const ToolTile: React.FC<ToolProps> = ({ tool }) => {
   return (
-    <div className="columns">
-      <div className="column">
-        <div className="card">
-          <div className="card-image">
-            <figure className="image is-4by3">
-              <img src={mitersaw} alt="Tool Image" />
-            </figure>
-          </div>
-          <div className="card-content">
-            <div className="media">
-              <div className="media-content">
-                <p className="title is-4">Tool Name</p>
-                <p className="subtitle is-6">$Price/day</p>
-              </div>
-            </div>
-
-            <div className="content">Tool description goes here...</div>
-          </div>
-        </div>
+    <div className="card">
+      <img className="card-img-top" src={tool.imageUrl} alt={tool.name} />
+      <div className="card-body">
+        <h5 className="card-title">{tool.name}</h5>
+        <p className="card-text">{tool.description}</p>
+        <p className="card-text">
+          Price: ${tool.price}
+          <br />
+          Owner: {tool.owner}
+        </p>
+        <a href="#" className="btn btn-primary">
+          Rent
+        </a>
       </div>
     </div>
   )
 }
 
-export default ToolTile
+interface ToolListProps {
+  tools: Array<{
+    id: number
+    name: string
+    description: string
+    price: number
+    owner: string
+    imageUrl: string
+  }>
+}
+
+const ToolList: React.FC<ToolListProps> = ({ tools }) => {
+  return (
+    <div className="container">
+      <div className="row">
+        {tools.map((tool) => (
+          <div className="col-md-4" key={tool.id}>
+            <ToolTile tool={tool} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default ToolList
