@@ -33,7 +33,7 @@ const SearchInput = () => {
   )
 }
 
-const LeftMenu: React.FC = () => {
+const LeftMenu = () => {
   return (
     <aside className="menu">
       <p className="menu-label">User Options</p>
@@ -62,5 +62,4 @@ const LeftMenu: React.FC = () => {
     </aside>
   )
 }
-
 export default LeftMenu

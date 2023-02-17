@@ -1,17 +1,15 @@
 import React from 'react'
 
-interface ToolProps {
-  tool: {
-    id: number
-    name: string
-    description: string
-    price: number
-    owner: string
-    imageUrl: string
-  }
+type ToolProps = {
+  id: number
+  name: string
+  description: string
+  price: number
+  owner: string
+  imageUrl: string
 }
 
-const ToolTile: React.FC<ToolProps> = ({ tool }) => {
+const ToolTile: React.FC<ToolProps> = (tool) => {
   return (
     <div className="card">
       <img className="card-img-top" src={tool.imageUrl} alt={tool.name} />
@@ -31,7 +29,7 @@ const ToolTile: React.FC<ToolProps> = ({ tool }) => {
   )
 }
 
-interface ToolListProps {
+type ToolListProps = {
   tools: Array<{
     id: number
     name: string
@@ -48,7 +46,7 @@ const ToolList: React.FC<ToolListProps> = ({ tools }) => {
       <div className="row">
         {tools.map((tool) => (
           <div className="col-md-4" key={tool.id}>
-            <ToolTile tool={tool} />
+            <ToolTile {...tool} />
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import 'bulma/css/bulma.css'
 import ToolList from './ToolTile'
 
-function MainContent() {
+const MainContent = () => {
   return (
     <main className="section">
       <div className="container">
