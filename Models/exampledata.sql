@@ -1,3 +1,5 @@
+TRUNCATE TABLE "Tools" RESTART IDENTITY;
+
 INSERT INTO "Tools" (Name, Description, Price, ImageUrl, Owner, IsAvailable, CanBeRented, CanBePurchased, CanBeBorrowed)
 VALUES
 ('Hammer Drill', 'Cordless hammer drill with variable speed control', 39.99, 'https://images.pexels.com/photos/3073/drill-technology-electric-metal.jpg', 'John Smith', 1, 1, 1, 1),
@@ -11,78 +13,6 @@ VALUES
 ('Planer', '13-inch benchtop planer with dual-blade cutterhead', 299.99, 'https://images.pexels.com/photos/4037008/pexels-photo-4037008.jpeg', 'John Smith', 1, 1, 1, 0),
 ('Jointer', '6-inch benchtop jointer with spiral cutterhead', 449.99, 'https://images.pexels.com/photos/1742517/pexels-photo-1742517.jpeg', 'Jane Doe', 0, 1, 1, 0),
 
-
-Power Tools
-Woodworking Tools
-Electrical Tools
-Hand Tools
-Plumbing Tools
-Outdoor Power Tools
-Automotive Tools
-Air Compressor Tools
-Welding & Soldering Tools
-Workwear
-Safety Equipment
-Flashlights
-Wet/Dry Vacuums
-Water Damage Remediation
-Ladders
-3D Printers
-CNC Machines
-
-
-Hammer Drill
-Miter Saw
-Circular Saw
-Jigsaw
-Table Saw
-Band Saw
-Drill Press
-Router
-Planer
-Jointer
-Belt Sander
-Bench Grinder
-Benchtop Sander
-Benchtop Lathe
-Impact Driver
-Concrete Saw
-Conduit Bender
-Pipe Bender
-Pipe Threader
-Pipe Cutter
-Pipe Wrench
-Air Compressor
-Air Impact Wrench
-Laser Distance Meter
-Laser Level
-Stud Finder
-18 Ga. Brad Nailer
-16 Ga. Finish Nailer
-18 Ga. Pin Nailer
-23 Ga. Pin Nailer
-MIG Welder
-TIG Welder
-Stick Welder
-Plasma Cutter
-Spot Welder
-Generator
-Pressure Washer
-Floor Buffer
-Floor Sander
-Floor Scrubber
-Floor Stripper
-Floor Polisher
-Tile Saw
-Floor Jack
-Floor Creeper
-Battery Charger
-Extension Ladder
-Step Ladder
-Multi-Position Ladder
-3D Printer
-CNC Machine
-Grinder
 
 
 
