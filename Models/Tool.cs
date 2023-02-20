@@ -8,8 +8,8 @@ namespace ToolBox.Models
         public string Owner { get; set; }
         public string ImageUrl { get; set; }
         public bool IsAvailable { get; set; }
-        public bool CanBeRented { get; set; }
-        public bool CanBePurchased { get; set; }
-        public bool CanBeBorrowed { get; set; }
+        public bool rent { get; set; }
+        public bool borrow { get; set; }
+        public bool purchase { get; set; }
     }
 }
