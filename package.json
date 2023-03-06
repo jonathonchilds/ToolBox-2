@@ -5,6 +5,9 @@
     "@types/react": "^18.0.28"
   },
   "dependencies": {
-    "bulma": "^0.9.4"
+    "@types/react-dom": "^18.0.11",
+    "bulma": "^0.9.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

@@ -1,25 +1,16 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import checker from 'vite-plugin-checker'
-import { EsLinter, linterPlugin } from 'vite-plugin-linter'
+import path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig((configEnv) => ({
+export default defineConfig({
   plugins: [
     reactRefresh(),
     checker({
-      // TypeScript config
-      typescript: { tsconfigPath: './tsconfig.json' },
-    }),
-    linterPlugin({
-      disableForBuild: true,
-      include: ['./src/**/*.ts', './src/**/*.tsx'],
-      linters: [
-        new EsLinter({
-          configEnv: configEnv,
-          serveOptions: { cache: false, formatter: 'visualstudio' },
-        }),
-      ],
+      typescript: true,
     }),
   ],
-}))
+  resolve: {
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+  },
+})

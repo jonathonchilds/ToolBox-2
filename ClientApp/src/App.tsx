@@ -1,20 +1,13 @@
-import React from 'react'
-import MainContent from './Components/MainContent'
-import LeftMenu from './Components/LeftMenu'
-import Navbar from './Components/Navbar'
+import React from "react";
+import Navbar from "@/scenes/navbar";
 
-const App: React.FC = () => {
+
+function App() {
   return (
-    <div className="columns is-gapless">
-      <div className="column is-2">
-        <LeftMenu />
-      </div>
-      <div className="column">
-        <Navbar />
-        <MainContent />
-      </div>
+    <div className="app bg-gray-20">
+      <Navbar />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
