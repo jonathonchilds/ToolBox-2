@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "@/scenes/navbar";
-
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="app bg-gray-20">
-      <Navbar />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 

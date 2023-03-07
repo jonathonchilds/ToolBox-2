@@ -1,4 +1,4 @@
-import useMediaQuery from "@/hooks/useMediaQuery";
+import useMediaQuery from '../hooks/useMediaQuery';
 import React, { useState } from "react";
 
 const SearchInput = () => {

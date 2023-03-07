@@ -34,6 +34,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     // Allow arguments with an underscore to be ignored if they are unused
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    //'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
 }
