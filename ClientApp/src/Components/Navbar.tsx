@@ -1,7 +1,9 @@
 import React from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+
 import Logo from "../assets/logo.png";
-import SearchFunction from "../components/SearchFunction";
+import SearchFunction from "./SearchFunction";
 import useMediaQuery from "../hooks/useMediaQuery";
 
 const Navbar = () => {
@@ -24,15 +26,15 @@ const Navbar = () => {
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
-                  <p>Home</p>
-                  <p>About</p>
-                  <p>Contact Us</p>
+                  <Link to="/">Home</Link>
+                  <Link to="/about">About</Link>
+                  <Link to="/contact-us">Contact Us</Link>
                   <p>Saved Tools</p>
                   <p>My Tools</p>
                 </div>
                 <div className={`${flexBetween} gap-8`}>
-                  <p>Sign In</p>
-                  <p>Sign Up</p>
+                  <Link to="/sign-in">Sign In</Link>
+                  <Link to="/sign-up">Sign Up</Link>
                   <SearchFunction />
                 </div>
               </div>
@@ -60,11 +62,11 @@ const Navbar = () => {
             <SearchFunction />
           </div>
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <p>Home</p>
+            <Link to="/">Home</Link>
             <p>Saved Tools</p>
             <p>My Tools</p>
-            <p>Sign In</p>
-            <p>Sign Up</p>
+            <Link to="/sign-in">Sign In</Link>
+            <Link to="/sign-up">Sign Up</Link>
           </div>
         </div>
       )}
