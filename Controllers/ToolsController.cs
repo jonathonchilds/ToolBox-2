@@ -31,12 +31,20 @@ namespace ToolBox.Controllers
         // Returns a list of all your Tools
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tool>>> GetTools()
+        public async Task<ActionResult<IEnumerable<Tool>>> GetTools(string filter)
         {
             // Uses the database context in `_context` to request all of the Tools, sort
             // them by row id and return them as a JSON array.
-            return await _context.Tools.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                return await _context.Tools.OrderBy(row => row.Id).ToListAsync();
+            }
+            else
+            {
+                return await _context.Tools.Where(row => row.Name.ToLower().Contains(filter.ToLower())).OrderBy(row => row.Id).ToListAsync();
+            }
         }
+
 
         // GET: api/Tools/5
         //
