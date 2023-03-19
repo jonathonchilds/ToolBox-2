@@ -3,40 +3,30 @@ import { ToolType } from "../types";
 
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
-    <div className="drop-shadow:xl h-auto w-1/5 flex-wrap p-4">
-      <div className="flex h-96 rounded-lg border-4 border-slate-800 p-8 hover:cursor-pointer hover:border-secondary-500 dark:bg-slate-800">
+    <div className="drop-shadow:xl h-auto w-1/5 max-w-md flex-wrap p-4 md:max-w-2xl ">
+      <div className="flex h-96 rounded-xl border-4 border-slate-800 p-8 hover:cursor-pointer hover:border-secondary-500 dark:bg-slate-800">
         <div className="align-center flex flex-col justify-center p-1">
           <img
-            className="m-auto h-20 w-20 rounded md:h-auto md:w-48"
+            className="m-auto h-auto w-auto rounded "
             src={tool.imageUrl}
             alt=""
             width="300"
             height="400"
           />
         </div>
-        <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
+        <div className="space-y-4 md:p-8 md:text-left">
           <h2>
-            <p className="text-lg font-medium text-secondary-500">
-              {tool.name}
-            </p>
+            <p className="text-2xl font-bold text-gray-100">{tool.name}</p>
           </h2>
-          <div className="font-medium">
-            <div className="text-sky-500 dark:text-sky-400">{tool.owner} </div>
-            <div className="text-slate-700 dark:text-slate-500">
-              {tool.isAvailable}
+          <div className="space-y-2 text-xl">
+            <div className="text-secondary-500">
+              {tool.borrow === true ? `Borrow Me!` : ""}
             </div>
-            <div className="text-slate-700 dark:text-slate-500">
-              {tool.price}
+            <div className="text-white">{tool.rent === true ? "Rent" : ""}</div>
+            <div className="text-secondary-500">
+              {tool.purchase === true ? `Purchase ${tool.price}` : ""}
             </div>
-            <div className="text-slate-700 dark:text-slate-500">
-              {tool.borrow}
-            </div>
-            <div className="text-slate-700 dark:text-slate-500">
-              {tool.rent}
-            </div>
-            <div className="text-slate-700 dark:text-slate-500">
-              {tool.purchase}
-            </div>
+            <div className="text-base text-gray-100">{tool.owner}</div>
           </div>
         </div>
       </div>
