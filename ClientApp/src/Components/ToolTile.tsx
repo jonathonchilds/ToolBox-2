@@ -3,8 +3,8 @@ import { ToolType } from "../types";
 
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
-    <div className="drop-shadow:xl p-4">
-      <div className="rounded-lg border-4 border-slate-800 p-8 hover:cursor-pointer hover:border-secondary-500 dark:bg-slate-800 md:flex md:p-0">
+    <div className="drop-shadow:xl h-auto w-1/5 flex-wrap p-4">
+      <div className="flex h-96 rounded-lg border-4 border-slate-800 p-8 hover:cursor-pointer hover:border-secondary-500 dark:bg-slate-800">
         <div className="align-center flex flex-col justify-center p-1">
           <img
             className="m-auto h-20 w-20 rounded md:h-auto md:w-48"

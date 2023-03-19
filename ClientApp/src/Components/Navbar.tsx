@@ -3,10 +3,13 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
-import SearchFunction from "./SearchFunction";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-const Navbar = () => {
+function Navbar({ setSearchInput }: any) {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const [isMenuToggled, setIsMenuToggled] = React.useState(false);
@@ -35,7 +38,24 @@ const Navbar = () => {
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>
                   <Link to="/sign-up">Sign Up</Link>
-                  <SearchFunction />
+                  <form>
+                    <div
+                      className={
+                        isAboveMediumScreens
+                          ? `flex items-center justify-between gap-2`
+                          : `flex items-center justify-start gap-2 px-2 pb-8`
+                      }
+                    >
+                      <input
+                        className="rounded-full px-4 py-3"
+                        type="text"
+                        placeholder="Find a tool"
+                        onChange={handleInputChange}
+                        onSubmit={handleInputChange}
+                      />
+                      <button>Search</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             ) : (
@@ -59,7 +79,23 @@ const Navbar = () => {
             </button>
           </div>
           <div className="">
-            <SearchFunction />
+            <div>
+              <div
+                className={
+                  isAboveMediumScreens
+                    ? `flex items-center justify-between gap-2`
+                    : `flex items-center justify-start gap-2 px-2 pb-8`
+                }
+              >
+                <input
+                  className="rounded-full px-4 py-3"
+                  type="text"
+                  placeholder="Find a tool"
+                  onChange={handleInputChange}
+                />
+                <button>Search</button>
+              </div>
+            </div>
           </div>
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
             <Link to="/">Home</Link>
@@ -72,6 +108,6 @@ const Navbar = () => {
       )}
     </nav>
   );
-};
+}
 
 export default Navbar;
