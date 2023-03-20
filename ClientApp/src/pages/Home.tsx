@@ -1,27 +1,37 @@
 import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
 
 import ToolTile from "../components/ToolTile";
 import { ToolType } from "../types";
 
-function Home({ SearchInput }: { SearchInput: string }) {
-  const { data: tools = [] } = useQuery<ToolType[]>(
-    ["tools", SearchInput],
-    async function () {
-      const response =
-        SearchInput.length === 0
-          ? await axios.get("/api/tools")
-          : await axios.get(`/api/tools?name=${SearchInput}`);
-      return response.data;
+async function Home({ SearchInput }: { SearchInput: string }) {
+  const fetchTools = async () => {
+    if (SearchInput === "") {
+      try {
+        const response = await axios.get<ToolType[]>("/api/tools");
+        const tools = response.data;
+        return tools;
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      try {
+        const response = await axios.get<ToolType[]>(
+          `/api/tools?name=${SearchInput}`
+        );
+        const tools = response.data;
+        return tools;
+      } catch (error) {
+        console.error(error);
+      }
     }
-  );
+  };
 
-  console.log(tools);
+  const tools = await fetchTools();
 
   return (
-    <div className="flex flex-wrap">
-      {tools.map((tool) => (
+    <div className="flex flex-wrap ">
+      {tools?.map((tool) => (
         <ToolTile key={tool.id} tool={tool} />
       ))}
     </div>

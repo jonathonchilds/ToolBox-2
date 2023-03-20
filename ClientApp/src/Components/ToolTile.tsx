@@ -14,19 +14,18 @@ function ToolTile({ tool }: { tool: ToolType }) {
             height="400"
           />
         </div>
-        <div className="space-y-4 md:p-8 md:text-left">
+        <div className="space-y-4 md:p-6 md:text-left">
           <h2>
             <p className="text-2xl font-bold text-gray-100">{tool.name}</p>
           </h2>
           <div className="space-y-2 text-xl">
             <div className="text-secondary-500">
-              {tool.borrow === true ? `Borrow Me!` : ""}
+              {tool.borrow === true ? `Borrow` : ""}
             </div>
             <div className="text-white">{tool.rent === true ? "Rent" : ""}</div>
             <div className="text-secondary-500">
-              {tool.purchase === true ? `Purchase ${tool.price}` : ""}
+              {tool.purchase === true ? `Purchase (${tool.price})` : ""}
             </div>
-            <div className="text-base text-gray-100">{tool.owner}</div>
           </div>
         </div>
       </div>

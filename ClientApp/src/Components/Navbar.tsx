@@ -18,7 +18,7 @@ function Navbar({ setSearchInput }: any) {
     <nav>
       {/* Overall navbar */}
       <div
-        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-6`}
+        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-8`}
       >
         {/* Components container of the navbar */}
         <div className={`${flexBetween} mx-auto w-5/6`}>
@@ -50,7 +50,6 @@ function Navbar({ setSearchInput }: any) {
                         className="rounded-full px-4 py-3"
                         type="text"
                         placeholder="Find a tool"
-                        onChange={handleInputChange}
                         onSubmit={handleInputChange}
                       />
                       <button>Search</button>
