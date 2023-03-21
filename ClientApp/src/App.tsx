@@ -12,12 +12,11 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 function App() {
-  const [searchInput, setSearchInput] = React.useState("");
   return (
     <BrowserRouter>
-      <Navbar setSearchInput={setSearchInput} />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home SearchInput={searchInput} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn />} />

@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
 import useMediaQuery from "../hooks/useMediaQuery";
+import SearchBar from "./SearchBar";
+import SearchFunction from "./SearchFunction";
 
-function Navbar({ setSearchInput }: any) {
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(event.target.value);
-  };
-
+function Navbar() {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const [isMenuToggled, setIsMenuToggled] = React.useState(false);
@@ -46,13 +44,7 @@ function Navbar({ setSearchInput }: any) {
                           : `flex items-center justify-start gap-2 px-2 pb-8`
                       }
                     >
-                      <input
-                        className="rounded-full px-4 py-3"
-                        type="text"
-                        placeholder="Find a tool"
-                        onSubmit={handleInputChange}
-                      />
-                      <button>Search</button>
+                      <SearchFunction />
                     </div>
                   </form>
                 </div>
@@ -86,13 +78,7 @@ function Navbar({ setSearchInput }: any) {
                     : `flex items-center justify-start gap-2 px-2 pb-8`
                 }
               >
-                <input
-                  className="rounded-full px-4 py-3"
-                  type="text"
-                  placeholder="Find a tool"
-                  onChange={handleInputChange}
-                />
-                <button>Search</button>
+                <SearchFunction />
               </div>
             </div>
           </div>

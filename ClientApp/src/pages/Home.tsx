@@ -1,39 +1,46 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 import ToolTile from "../components/ToolTile";
 import { ToolType } from "../types";
 
-async function Home({ SearchInput }: { SearchInput: string }) {
-  const fetchTools = async () => {
-    if (SearchInput === "") {
-      try {
-        const response = await axios.get<ToolType[]>("/api/tools");
-        const tools = response.data;
-        return tools;
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      try {
-        const response = await axios.get<ToolType[]>(
-          `/api/tools?name=${SearchInput}`
-        );
-        const tools = response.data;
-        return tools;
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
+export function Home() {
+  // const [filterText, setFilterText] = useState("");
 
-  const tools = await fetchTools();
+  // const { data: tools = [] } = useQuery<ToolType[]>(
+  //   ["tools", filterText],
+  //   async function () {
+  //     let url = "api/Tools";
+
+  //     if (filterText.length !== 0) {
+  //       url = `api/Tools?filter=${filterText}`;
+  //     }
+  //     const response = await fetch(url);
+
+  //     return response.json();
+  //   }
+  // );
+  const { data: tools = [] } = useQuery<ToolType[]>("tools", async function () {
+    const response = await axios.get("/api/tools");
+    return response.data;
+  });
 
   return (
     <div className="flex flex-wrap ">
-      {tools?.map((tool) => (
-        <ToolTile key={tool.id} tool={tool} />
-      ))}
+      {/* <form>
+        <input
+          type="text"
+          placeholder="Search"
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+      </form> */}
+      <div className="flex">
+        {tools.map((tool) => (
+          <ToolTile key={tool.id} tool={tool} />
+        ))}
+      </div>
     </div>
   );
 }
