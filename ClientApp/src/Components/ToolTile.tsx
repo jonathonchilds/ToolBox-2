@@ -3,19 +3,20 @@ import { ToolType } from "../types";
 
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
-    <div className="drop-shadow:xl h-auto w-1/5 max-w-md flex-wrap p-4 md:max-w-2xl ">
-      <div className="flex h-96 rounded-xl border-4 border-slate-800 p-8 hover:cursor-pointer hover:border-secondary-500 dark:bg-slate-800">
-        <div className="align-center flex flex-col justify-center p-1">
+    <div className="w-full flex-wrap p-4 md:w-1/5">
+      <div className="h-96 flex-col overflow-hidden rounded-xl shadow-md hover:cursor-pointer hover:shadow-xl">
+        <div className="h-2/4">
           <img
-            className="m-auto h-auto w-auto rounded "
+            className="h-full w-full object-cover"
             src={tool.imageUrl}
-            alt=""
+            alt={tool.name}
             width="300"
             height="400"
           />
         </div>
-        <div className="space-y-4 md:p-6 md:text-left">
-          <h2>
+
+        <div className="h-2/4 space-y-4 bg-slate-800 md:p-4 md:text-left">
+          <h2 className="flex justify-center">
             <p className="text-2xl font-bold text-gray-100">{tool.name}</p>
           </h2>
           <div className="space-y-2 text-xl">

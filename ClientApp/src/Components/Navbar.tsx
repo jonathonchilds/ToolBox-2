@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
 import useMediaQuery from "../hooks/useMediaQuery";
-import SearchBar from "./SearchBar";
 import SearchFunction from "./SearchFunction";
 
 function Navbar() {
@@ -36,7 +35,7 @@ function Navbar() {
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>
                   <Link to="/sign-up">Sign Up</Link>
-                  <form>
+                  <div>
                     <div
                       className={
                         isAboveMediumScreens
@@ -46,7 +45,7 @@ function Navbar() {
                     >
                       <SearchFunction />
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             ) : (

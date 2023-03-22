@@ -1,8 +1,13 @@
 import useMediaQuery from "../hooks/useMediaQuery";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToolType } from "../types";
+import { useQuery } from "react-query";
 
 const SearchInput = () => {
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -10,9 +15,8 @@ const SearchInput = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Perform search action with the query value
+    navigate(`/search?query=${encodeURIComponent(query)}`);
   };
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
 
   return (
     <form onSubmit={handleSubmit}>
@@ -33,7 +37,7 @@ const SearchInput = () => {
           />
         </div>
         <div>
-          <button>Search</button>
+          <button className="flex items-center">Search</button>
         </div>
       </div>
     </form>
