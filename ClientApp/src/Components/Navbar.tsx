@@ -27,10 +27,10 @@ function Navbar() {
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
                   <Link to="/">Home</Link>
-                  <Link to="/about">About</Link>
-                  <Link to="/contact-us">Contact Us</Link>
+                  <Link to="/add-a-tool">Add a tool!</Link>
                   <p>Saved Tools</p>
                   <p>My Tools</p>
+                  <Link to="/contact-us">Contact Us</Link>
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>
