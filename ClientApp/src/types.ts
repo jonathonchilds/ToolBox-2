@@ -5,9 +5,9 @@ export interface CSSStarsProps extends CSSProperties {
 }
 
 export type ToolType = {
-  id: number;
+  id: number | undefined;
   name: string;
-  price: number;
+  price: number | null;
   owner: string;
   imageUrl: string;
   isAvailable: boolean;

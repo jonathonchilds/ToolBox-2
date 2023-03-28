@@ -14,11 +14,11 @@ export default function SignIn() {
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
       <div className="flex h-full items-center justify-center p-8">
-        <form className="relative mx-auto w-full max-w-[400px] bg-secondary-400 p-8 shadow-lg">
+        <form className="relative mx-auto w-full max-w-md bg-secondary-400 p-8 shadow-lg">
           <div className="flex justify-center py-4 ">
             <img
               src={logo}
-              className="relative flex max-w-[50%] justify-center py-2"
+              className="max-w-1/2 relative flex justify-center py-2"
             />
           </div>
 

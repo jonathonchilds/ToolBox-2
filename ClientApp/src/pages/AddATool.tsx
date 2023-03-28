@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import backgroundImg from "../assets/pointy-glove-guy.jpg";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { ToolType } from "../types";
 
-export default function SignIn() {
+export default function AddATool() {
+  const [newTool, setNewTool] = useState<ToolType>({
+    id: undefined,
+    name: "",
+    price: null,
+    owner: "owner",
+    imageUrl: "",
+    isAvailable: false,
+    rent: false,
+    borrow: false,
+    purchase: false,
+  });
+
+  const [selectedRadioBtn, setSelectedRadioBtn] = React.useState("no");
+
+  function handleStringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setNewTool({ ...newTool, [event.target.name]: event.target.value });
+  }
+
+  const isRadioSelected = (value: string): boolean =>
+    selectedRadioBtn === value;
+
+  const handleRadioClick = (e: React.ChangeEvent<HTMLInputElement>): void =>
+    setSelectedRadioBtn(e.currentTarget.value);
+
   return (
-    <div className="relative h-screen w-full bg-zinc-900/90">
+    <section className="relative h-screen w-full bg-zinc-900/90">
       <img
         src={backgroundImg}
         className="absolute h-full w-full object-cover mix-blend-overlay"
@@ -22,28 +46,100 @@ export default function SignIn() {
 
           <div className="flex justify-around pb-8 pt-4"></div>
 
-          <div className="mb-4 flex flex-col">
-            <label>Name of tool</label>
-            <input className="relative border bg-gray-50" type="text" />
-          </div>
-          <div className="mb-4 flex flex-col">
+          <p className="mb-4 flex flex-col">
+            <label>Name of tool:</label>
+            <input
+              name="name"
+              className="relative my-2 border bg-gray-50 "
+              type="text"
+            />
+          </p>
+          <p className="mb-4 flex flex-col">
             <label>Can people borrow this tool (at no charge)?</label>
-            <input className="relative border bg-gray-50" type="text" />
-          </div>
-          <div className="mb-4 flex flex-col">
+            <div className="flex w-full justify-around py-2">
+              <div>
+                <label className="px-2">Yes</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="Yes"
+                  checked={isRadioSelected("yes")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+              <div>
+                <label className="px-2">No</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="No"
+                  checked={isRadioSelected("no")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+            </div>
+          </p>
+          <p className="mb-4 flex flex-col">
             <label>Can this tool be rented?</label>
-            <input className="relative border bg-gray-50" type="text" />
-          </div>
+            <div className="flex w-full justify-around py-2">
+              <div>
+                <label className="px-2">Yes</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="Yes"
+                  checked={isRadioSelected("yes")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+              <div>
+                <label className="px-2">No</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="No"
+                  checked={isRadioSelected("no")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+            </div>
+          </p>
           <div className=" mb-4 flex flex-col ">
             <label>Can this tool be purchased?</label>
-            <input className="relative border bg-gray-50" type="password" />
+            <div className="flex w-full justify-around py-2">
+              <div>
+                <label className="px-2">Yes</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="Yes"
+                  checked={isRadioSelected("yes")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+              <div>
+                <label className="px-2">No</label>
+                <input
+                  type="radio"
+                  name="rent"
+                  value="No"
+                  checked={isRadioSelected("no")}
+                  onChange={handleRadioClick}
+                  className="relative border bg-gray-50"
+                />
+              </div>
+            </div>
           </div>
-
           <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             Add Tool
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
