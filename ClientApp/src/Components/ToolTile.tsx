@@ -21,11 +21,13 @@ function ToolTile({ tool }: { tool: ToolType }) {
           </h2>
           <div className="space-y-2 text-xl">
             <div className="text-secondary-500">
-              {tool.borrow === true ? `Borrow` : ""}
+              {tool.borrow === true ? `Borrow $${tool.borrowPrice}` : ""}
             </div>
-            <div className="text-white">{tool.rent === true ? "Rent" : ""}</div>
+            <div className="text-white">
+              {tool.rent === true ? `Rent $${tool.rentPrice}` : ""}{" "}
+            </div>
             <div className="text-secondary-500">
-              {tool.purchase === true ? `Purchase (${tool.price})` : ""}
+              {tool.purchase === true ? `Purchase $${tool.purchasePrice}` : ""}
             </div>
           </div>
         </div>

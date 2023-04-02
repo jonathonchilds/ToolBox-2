@@ -7,11 +7,11 @@ export interface CSSStarsProps extends CSSProperties {
 export type ToolType = {
   id: number | undefined;
   name: string;
-  price: number | null;
-  owner: string;
   imageUrl: string;
-  isAvailable: boolean;
   rent: boolean;
+  rentPrice: number;
   borrow: boolean;
+  borrowPrice: number;
   purchase: boolean;
+  purchasePrice: number;
 };

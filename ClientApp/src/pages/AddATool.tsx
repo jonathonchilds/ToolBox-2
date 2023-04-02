@@ -7,16 +7,16 @@ export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
     id: undefined,
     name: "",
-    price: null,
-    owner: "owner",
     imageUrl: "",
-    isAvailable: false,
     rent: false,
+    rentPrice: 0,
     borrow: false,
+    borrowPrice: 0,
     purchase: false,
+    purchasePrice: 0,
   });
 
-  const [selectedRadioBtn, setSelectedRadioBtn] = React.useState("no");
+  const [selectedRadioBtn, setSelectedRadioBtn] = React.useState("");
 
   function handleStringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTool({ ...newTool, [event.target.name]: event.target.value });
@@ -63,7 +63,6 @@ export default function AddATool() {
                   type="radio"
                   name="rent"
                   value="Yes"
-                  checked={isRadioSelected("yes")}
                   onChange={handleRadioClick}
                   className="relative border bg-gray-50"
                 />

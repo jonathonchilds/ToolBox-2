@@ -25,29 +25,29 @@ namespace ToolBox.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<bool>("CanBeBorrowed")
+                    b.Property<bool>("Borrow")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("CanBePurchased")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("CanBeRented")
-                        .HasColumnType("boolean");
+                    b.Property<int>("BorrowPrice")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("Owner")
-                        .HasColumnType("text");
+                    b.Property<bool>("Purchase")
+                        .HasColumnType("boolean");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
+                    b.Property<int>("PurchasePrice")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Rent")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("RentPrice")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

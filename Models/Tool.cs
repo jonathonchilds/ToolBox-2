@@ -2,14 +2,14 @@ namespace ToolBox.Models
 {
     public class Tool
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Owner { get; set; }
-        public string ImageUrl { get; set; }
-        public bool IsAvailable { get; set; }
-        public bool rent { get; set; }
-        public bool borrow { get; set; }
-        public bool purchase { get; set; }
+        public int Id { get; set; } = 0;
+        public string Name { get; set; } = "";
+        public string ImageUrl { get; set; } = "";
+        public bool Rent { get; set; } = false;
+        public int RentPrice { get; set; } = 0;
+        public bool Borrow { get; set; } = false;
+        public int BorrowPrice { get; set; } = 0;
+        public bool Purchase { get; set; } = false;
+        public int PurchasePrice { get; set; } = 0;
     }
 }
