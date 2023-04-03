@@ -1,5 +1,6 @@
 import React from "react";
 import { ToolType } from "../types";
+import { formatPrice } from "../utilities/FormatPrice";
 
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
@@ -21,13 +22,15 @@ function ToolTile({ tool }: { tool: ToolType }) {
           </h2>
           <div className="space-y-2 text-xl">
             <div className="text-secondary-500">
-              {tool.borrow === true ? `Borrow $${tool.borrowPrice}` : ""}
+              {tool.borrow === true ? `Borrow` : ""}
             </div>
             <div className="text-white">
-              {tool.rent === true ? `Rent $${tool.rentPrice}` : ""}{" "}
+              {tool.rent === true ? `Rent ${formatPrice(tool.rentPrice)}` : ""}{" "}
             </div>
             <div className="text-secondary-500">
-              {tool.purchase === true ? `Purchase $${tool.purchasePrice}` : ""}
+              {tool.purchase === true
+                ? `Purchase ${formatPrice(tool.purchasePrice)}`
+                : ""}
             </div>
           </div>
         </div>

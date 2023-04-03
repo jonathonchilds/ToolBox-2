@@ -1,6 +1,6 @@
 import React from "react";
-import backgroundImg from "../assets/pointy-glove-guy.jpg";
-import logo from "../assets/logo.png";
+import backgroundImg from "../images/pointy-glove-guy.jpg";
+import logo from "../images/logo.png";
 
 export default function ContactUs() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
-import Logo from "../assets/logo.png";
+import Logo from "../images/logo.png";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SearchFunction from "./SearchFunction";
 

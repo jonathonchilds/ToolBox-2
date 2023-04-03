@@ -1,14 +1,14 @@
 TRUNCATE TABLE "Tools" RESTART IDENTITY;
-
+/*PRICES ENTERED AS "CENT" VALUES */
 INSERT INTO "Tools" ("Name", "ImageUrl", "Rent", "RentPrice", "Borrow", "BorrowPrice", "Purchase", "PurchasePrice")
 VALUES
-('Hammer Drill', 'https://images.pexels.com/photos/3073/drill-technology-electric-metal.jpg', true, 29.99, false, 0, true, 49.99),
-('Miter Saw', 'https://cdn.pixabay.com/photo/2016/03/05/21/34/saw-1239017_1280.jpg', true, 59.99, false, 0, true, 149.99),
-('Circular Saw', 'https://cdn.pixabay.com/photo/2019/11/13/10/17/skilsaw-5166-4623181_1280.jpg', true, 19.99, true, 0, false, 49.99),
-('Jigsaw', 'https://cdn.pixabay.com/photo/2020/06/05/20/19/board-5264378_1280.jpg', false, 0, true, 9.99, false, 0),
-('Table Saw', 'https://cdn.pixabay.com/photo/2015/03/10/13/51/saw-667135_1280.jpg', true, 99.99, false, 0, true, 199.99),
-('Band Saw', 'https://cdn.pixabay.com/photo/2018/05/26/20/27/band-saw-3432183_1280.jpg', false, 0, true, 19.99, false, 0),
-('Drill Press', 'https://cdn.pixabay.com/photo/2020/06/18/18/49/drill-press-5314646_1280.jpg', false, 0, true, 14.99, false, 0),
-('Router', 'https://cdn.pixabay.com/photo/2016/02/29/21/21/carving-1229263__480.jpg', true, 39.99, false, 0, true, 69.99),
-('Planer', 'https://cdn.pixabay.com/photo/2015/04/09/23/31/planer-715463_1280.jpg', true, 149.99, true, 19.99, true, 299.99),
-('Jointer', 'https://www.rockler.com/media/catalog/product/cache/5c5edcf249a74e99ece620285918bb9b/1/7/1791279DXK_main-1000.jpg', true, 249.99, false, 0, false, 0);
+('Hammer Drill', 'https://photos-us.bazaarvoice.com/photo/2/cGhvdG86aG9tZWRlcG90/35300c25-c9d5-5939-8871-794d33d650a2', true, 1000, false, 0, true, 14999),
+('Miter Saw', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/032ed1278d466625ec1e8bf5f3ca514b_1646358209481_0_L1800.jpeg', true, 2500, false, 0, true, 14999),
+('Circular Saw', 'https://photos-us.bazaarvoice.com/photo/2/cGhvdG86aG9tZWRlcG90/8da9d9fa-64d3-567d-a260-97243bf3c902', true, 1999, true, 0, false, 4999),
+('Jigsaw', 'https://photos-us.bazaarvoice.com/photo/2/cGhvdG86bWlsd2F1a2VldG9vbA/83e747ae-ecdd-502a-ac57-0e020fb05dc0', false, 0, true, 950, false, 0),
+('Table Saw', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/7c9f6b1440bbe90a348ae87c8ee84e1f_1663721728542_3_L1800.jpeg', true, 9999, false, 0, true, 119999),
+('Band Saw', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/55f148a6ab1189faca12ff3c4ca85480_1600127218463_0_L1800.jpeg', false, 0, true, 2000, false, 0),
+('Drill Press', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/3AAF90EE53A0E3E4D582DEA0FDC12638.app1_1509850042166_L1800.jpeg', false, 0, true, 1499, false, 0),
+('Router', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/C471CE1BBCAFE46FA34032B991B13948.app1_1472670677282-2_L1800.jpeg', true, 2000, false, 0, true, 10000),
+('Planer', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/278D204B5A5F7A66BA25278523AEA6FC.app1_1573864876572_L1800.jpeg', true, 15000, true, 10000, true, 150000),
+('Jointer', 'https://wac.edgecastcdn.net/001A39/prod/media/6f2iIJdfiy1XrhEsite/FF191CFA1B1C974ACE5A2E1918CEBA13.app1_1459394737736_L1800.jpeg', true, 15000, false, 0, false, 0);
