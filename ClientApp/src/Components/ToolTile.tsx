@@ -18,18 +18,18 @@ function ToolTile({ tool }: { tool: ToolType }) {
 
         <div className="h-2/4 space-y-4 bg-slate-800 md:p-4 md:text-left">
           <h2 className="flex justify-center">
-            <p className="text-2xl font-bold text-gray-100">{tool.name}</p>
+            <p className="py-2 text-2xl font-bold text-gray-100">{tool.name}</p>
           </h2>
           <div className="space-y-2 text-xl">
-            <div className="text-secondary-500">
-              {tool.borrow === true ? `Borrow` : ""}
+            <div className="px-2 text-white">
+              {tool.borrow === true ? `Borrow me!` : ""}
             </div>
-            <div className="text-white">
-              {tool.rent === true ? `Rent ${formatPrice(tool.rentPrice)}` : ""}{" "}
+            <div className="px-2 text-white">
+              {tool.rent === true ? `Rent: ${formatPrice(tool.rentPrice)}` : ""}{" "}
             </div>
-            <div className="text-secondary-500">
+            <div className="px-2 text-secondary-500">
               {tool.purchase === true
-                ? `Purchase ${formatPrice(tool.purchasePrice)}`
+                ? `Purchase: ${formatPrice(tool.purchasePrice)}`
                 : ""}
             </div>
           </div>

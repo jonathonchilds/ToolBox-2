@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "react-router-dom": ["node_modules/react-router-dom"],
+      "react-router-dom/*": ["node_modules/react-router-dom/*"]
+    }
   },
   "include": ["./src"]
 }

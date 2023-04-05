@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+
 import backgroundImg from "../images/pointy-glove-guy.jpg";
 import logo from "../images/logo.png";
 import { ToolType } from "../types";
-import { useMutation } from "react-query";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
@@ -26,7 +28,12 @@ export default function AddATool() {
     return response.json();
   }
 
-  const createNewTool = useMutation(submitNewTool);
+  const navigate = useNavigate();
+  const createNewTool = useMutation(submitNewTool, {
+    onSuccess: function () {
+      navigate("/");
+    },
+  });
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
