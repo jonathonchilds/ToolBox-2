@@ -4,7 +4,7 @@ import "./index.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar.tsx";
+import Navbar from "./components/Navbar";
 import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
