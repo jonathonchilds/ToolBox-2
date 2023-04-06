@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import backgroundImg from "../images/pointy-glove-guy.jpg";
 import logo from "../images/logo.png";
-import { ToolType } from "../types";
+import { APIError, ToolType } from "../types";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
@@ -19,19 +19,28 @@ export default function AddATool() {
     purchasePrice: 0,
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   async function submitNewTool(tool: ToolType) {
     const response = await fetch("/api/Tools", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(tool),
     });
-    return response.json();
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw await response.json();
+    }
   }
 
   const navigate = useNavigate();
   const createNewTool = useMutation(submitNewTool, {
     onSuccess: function () {
       navigate("/");
+    },
+    onError: function (apiError: APIError) {
+      setErrorMessage(Object.values(apiError.errors).join(" "));
     },
   });
 
@@ -71,6 +80,7 @@ export default function AddATool() {
           onSubmit={handleFormSubmit}
           className="relative mx-auto w-full max-w-[400px] bg-secondary-400 p-8 shadow-lg"
         >
+          {errorMessage ? <p>{errorMessage}</p> : null}
           <div className="flex justify-center py-4 ">
             <img
               src={logo}
