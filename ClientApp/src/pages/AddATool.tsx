@@ -80,7 +80,11 @@ export default function AddATool() {
           onSubmit={handleFormSubmit}
           className="relative mx-auto w-full max-w-[400px] bg-secondary-400 p-8 shadow-lg"
         >
-          {errorMessage ? <p>{errorMessage}</p> : null}
+          {errorMessage ? (
+            <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              {errorMessage}
+            </p>
+          ) : null}
           <div className="flex justify-center py-4 ">
             <img
               src={logo}
