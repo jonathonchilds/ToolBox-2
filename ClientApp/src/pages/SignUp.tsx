@@ -31,34 +31,37 @@ export default function SignIn() {
             </p>
           </div>
           <div className="mb-4 flex flex-col">
-            <label>First Name</label>
-            <input className="relative border bg-gray-50" type="text" />
+            <label className="px-2">First Name</label>
+            <input className="rounded-full bg-gray-50 px-3" type="text" />
           </div>
           <div className="mb-4 flex flex-col">
-            <label>Last Name</label>
-            <input className="relative border bg-gray-50" type="text" />
+            <label className="px-2">Last Name</label>
+            <input className="rounded-full bg-gray-50 px-3" type="text" />
           </div>
           <div className="mb-4 flex flex-col">
-            <label>Zip Code</label>
-            <input className="relative border bg-gray-50" type="text" />
+            <label className="px-2">Zip Code</label>
+            <input className="rounded-full bg-gray-50 px-3" type="text" />
           </div>
-          <div className="mb-4 flex flex-col">
-            <label>Create a Username</label>
-            <input className="relative border bg-gray-50" type="text" />
+          <div className="mb-4 flex flex-col pt-2">
+            <label className="px-2">Create a Username</label>
+            <input className="rounded-full bg-gray-50 px-3" type="text" />
           </div>
-          <div className=" mb-4 flex flex-col ">
-            <label>Create a Password</label>
-            <input className="relative border bg-gray-50" type="password" />
+          <div className="mb-4 flex flex-col pt-2 ">
+            <label className="px-2">Create a Password</label>
+            <input className="rounded-full bg-gray-50 px-3" type="password" />
           </div>
           <div className="flex flex-col ">
-            <label>Re-enter Password</label>
-            <input className="relative border bg-gray-50" type="password" />
+            <label className="px-2">Re-enter Password</label>
+            <input className="rounded-full bg-gray-50 px-3" type="password" />
           </div>
-          <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="mt-8 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             Sign Up
           </button>
           <p className="mt-8 text-center">
-            Already a member? <Link to="/sign-in">Sign In Here</Link>
+            Already a member?{" "}
+            <Link to="/sign-in" className="underline">
+              Sign In Here
+            </Link>
           </p>
         </form>
       </div>

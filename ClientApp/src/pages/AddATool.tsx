@@ -75,10 +75,11 @@ export default function AddATool() {
         className="absolute h-full w-full object-cover mix-blend-overlay"
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
+
       <div className="flex h-full items-center justify-center p-8">
         <form
           onSubmit={handleFormSubmit}
-          className="relative mx-auto w-full max-w-[400px] bg-secondary-400 p-8 shadow-lg"
+          className="relative mx-auto w-full max-w-[400px] rounded-lg bg-secondary-400 p-8 shadow-lg"
         >
           {errorMessage ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
@@ -88,24 +89,26 @@ export default function AddATool() {
           <div className="flex justify-center py-4 ">
             <img
               src={logo}
-              className="relative flex max-w-[50%] justify-center py-2"
+              className="max-w-screen-lg relative flex justify-center"
             />
           </div>
-
-          <div className="flex justify-around pb-8 pt-4"></div>
-
+          <h1 className=" align-items-center relative m-4 mt-2 flex justify-center text-xl font-semibold">
+            Add a tool!
+          </h1>
+          <div className="flex justify-around"></div>
           <p className="mb-4 flex flex-col">
-            <label>Add a tool:</label>
             <input
               name="name"
-              className="relative my-2 border bg-gray-50 "
+              className=" my-2 rounded-full  bg-gray-50 px-3 py-2"
               type="text"
               onChange={handleStringFieldChange}
-              placeholder="Enter the name of the tool"
+              placeholder="Name of the tool?"
             />
           </p>
           <div className="mb-4 flex flex-col">
-            <label>Can people borrow this tool (at no charge)?</label>
+            <label className="font-semibold">
+              Can people borrow this tool (at no charge)?
+            </label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
@@ -114,7 +117,7 @@ export default function AddATool() {
                   name="borrow"
                   value="Yes"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
+                  className=" relative bg-gray-50"
                 />
               </div>
               <div>
@@ -129,8 +132,8 @@ export default function AddATool() {
               </div>
             </div>
           </div>
-          <div className="mb-4 flex flex-col">
-            <label>Can this tool be rented?</label>
+          <div className="flex flex-col">
+            <label className="font-semibold">Can this tool be rented?</label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
@@ -156,15 +159,15 @@ export default function AddATool() {
             <p className="mb-4 flex flex-col">
               <input
                 name="rentPrice"
-                className="relative border bg-gray-50 "
+                className="my-1 rounded-full  bg-gray-50 px-3  py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
-                placeholder="Enter a price in dollars and cents (19.99)"
+                placeholder="Rental price per day (e.g. 19.99)"
               />
             </p>
           </div>
           <div className=" mb-4 flex flex-col ">
-            <label>Can this tool be purchased?</label>
+            <label className="font-semibold">Can this tool be purchased?</label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
@@ -183,21 +186,21 @@ export default function AddATool() {
                   name="purchase"
                   value="No"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
+                  className="relative  border bg-gray-50"
                 />
               </div>
             </div>
             <p className="mb-4 flex flex-col">
               <input
                 name="purchasePrice"
-                className="relative border bg-gray-50 "
+                className="my-1 rounded-full  bg-gray-50 px-3 py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
-                placeholder="Enter a price in dollars and cents (19.99)"
+                placeholder="Purchase price (e.g. 19.99)"
               />
             </p>
           </div>
-          <button className="mt-2 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="mt-2 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             Add Tool
           </button>
         </form>

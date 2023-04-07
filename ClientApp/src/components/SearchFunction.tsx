@@ -29,7 +29,7 @@ const SearchInput = () => {
       >
         <div>
           <input
-            className="rounded-full px-4 py-3"
+            className="border-medium rounded-full border bg-slate-200 px-4 py-3"
             type="text"
             placeholder="Find a tool"
             value={query}

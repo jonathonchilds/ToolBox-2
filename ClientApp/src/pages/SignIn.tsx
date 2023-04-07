@@ -14,7 +14,7 @@ export default function SignIn() {
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
       <div className="flex h-full items-center justify-center p-8">
-        <form className="relative mx-auto w-full max-w-[400px] border-4 border-gray-50 bg-secondary-400 p-8">
+        <form className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8">
           <div className="flex justify-center py-4">
             <img src={logo} className="relative " />
           </div>
@@ -27,22 +27,31 @@ export default function SignIn() {
             </p>
           </div>
           <div className="mb-4 flex flex-col">
-            <label>Username</label>
-            <input className="relative border bg-gray-50 p-2" type="text" />
+            <input
+              className="relative rounded-full border border-stone-500 bg-gray-50 p-2 px-4"
+              type="text"
+              placeholder="Username"
+            />
           </div>
           <div className="flex flex-col ">
-            <label>Password</label>
-            <input className="relative border bg-gray-50 p-2" type="password" />
+            <input
+              className="relative rounded-full border border-stone-500 bg-gray-50 p-2 px-4 "
+              type="password"
+              placeholder="Password"
+            />
           </div>
-          <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="mt-8 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             Sign In
           </button>
-          <p className="mt-2 flex items-center">
+          <p className="mt-3 flex items-center">
             <input className="mr-2" type="checkbox" />
             Remember Me
           </p>
           <p className="mt-8 text-center">
-            Not a member? <Link to="/sign-up">Sign Up Here</Link>
+            Not a member?{" "}
+            <Link to="/sign-up" className="underline">
+              Sign Up Here
+            </Link>
           </p>
         </form>
       </div>

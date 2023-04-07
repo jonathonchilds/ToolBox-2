@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 
 import ToolTile from "../components/ToolTile";
@@ -25,7 +24,7 @@ export function Home() {
   //why are we using useQuery?
 
   return (
-    <div className="flex flex-wrap ">
+    <div className="flex flex-wrap bg-slate-200 p-4 pt-8">
       {tools.map((tool) => (
         <ToolTile key={tool.id} tool={tool} />
       ))}
