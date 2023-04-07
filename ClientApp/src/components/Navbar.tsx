@@ -26,11 +26,9 @@ function Navbar() {
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
-                  <Link to="/">Home</Link>
-                  <Link to="/add-a-tool">Add a tool!</Link>
-                  <p>Saved Tools</p>
-                  <p>My Tools</p>
-                  <Link to="/contact-us">Contact Us</Link>
+                  <Link to="/">View All Tools</Link>
+                  <Link to="/add-a-tool">Add A Tool</Link>
+                  <Link to="/contact-us">Contact Jonathon</Link>
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>
@@ -61,7 +59,7 @@ function Navbar() {
       </div>
       {/* Mobile menu modal*/}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-secondary-400">
+        <div className="fixed bottom-0 right-0 z-40 h-full w-[300px] bg-secondary-400">
           {/* Close icon */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
