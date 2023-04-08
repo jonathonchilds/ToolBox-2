@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 
 export default function ContactUs() {
   return (
-    <div className="relative h-screen w-full bg-zinc-900/90">
+    <div className="relative w-full bg-zinc-900/90">
       <img
         src={backgroundImg}
         className="absolute h-full w-full object-cover mix-blend-overlay"

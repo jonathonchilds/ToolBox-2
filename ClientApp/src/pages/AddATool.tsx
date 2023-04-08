@@ -75,7 +75,7 @@ export default function AddATool() {
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
 
-      <div className="flex h-full items-center justify-center p-8">
+      <div className="flex items-center justify-center p-8">
         <form
           onSubmit={handleFormSubmit}
           className="relative mx-auto w-full max-w-[400px] rounded-lg bg-secondary-400 p-8 shadow-lg"
