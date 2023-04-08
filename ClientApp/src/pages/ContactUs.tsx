@@ -11,7 +11,7 @@ export default function ContactUs() {
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
       <div className="flex h-full items-center justify-center p-8">
-        <div className="relative mx-auto w-full max-w-[400px] bg-secondary-400 p-8 shadow-lg">
+        <div className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8 shadow-lg">
           <div className="flex justify-center py-4 ">
             <img
               src={logo}

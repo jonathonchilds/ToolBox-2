@@ -13,8 +13,8 @@ export default function SignIn() {
         className="absolute h-full w-full object-cover mix-blend-overlay"
         alt="Friendly machinist with a mustache, a glove, and a smile."
       />
-      <div className="flex items-center justify-center p-8">
-        <form className="relative mx-auto w-full max-w-md bg-secondary-400 p-8 shadow-lg">
+      <div className="flex items-center justify-center p-8 ">
+        <form className="relative mx-auto w-full max-w-md rounded-lg border-4 border-gray-50 bg-secondary-400 p-8 shadow-lg">
           <div className="flex justify-center py-4 ">
             <img
               src={logo}
@@ -22,7 +22,7 @@ export default function SignIn() {
             />
           </div>
 
-          <div className="flex justify-around pb-8 pt-4">
+          <div className="flex justify-around pb-8 pt-4 ">
             <p className="relative flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
               <BsFacebook />
             </p>
