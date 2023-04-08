@@ -8,7 +8,6 @@ import { APIError, ToolType } from "../types";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
-    id: undefined,
     name: "",
     imageUrl: "",
     rent: false,

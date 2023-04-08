@@ -23,6 +23,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/tools/:id" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );

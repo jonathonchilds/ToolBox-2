@@ -21,7 +21,10 @@ function Navbar() {
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
-            <img alt="logo" src={Logo} />
+            <Link to="/">
+              {" "}
+              <img alt="logo" src={Logo} />{" "}
+            </Link>
             {/* RIGHT SIDE */}
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
@@ -81,8 +84,7 @@ function Navbar() {
           </div>
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
             <Link to="/">Home</Link>
-            <p>Saved Tools</p>
-            <p>My Tools</p>
+
             <Link to="/sign-in">Sign In</Link>
             <Link to="/sign-up">Sign Up</Link>
           </div>
