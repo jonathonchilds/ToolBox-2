@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { ToolType } from "src/types";
 
-async function loadOneTool(id: string) {
+async function loadOneTool(id?: string) {
   const response = await fetch(`api/tools/${id}`);
 
   if (response.ok) {
@@ -31,4 +31,5 @@ export function Tool() {
   const { data: tool = NullTool } = useQuery<ToolType>(["one-tool", id], () =>
     loadOneTool(id)
   );
+  return <div>{tool.name}</div>;
 }
