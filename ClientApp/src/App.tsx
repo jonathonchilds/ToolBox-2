@@ -11,6 +11,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import AddATool from "./pages/AddATool";
+import SingleToolDetails from "./pages/SingleToolDetails";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/tools/:id" element={<SignUp />} />
+        <Route path="/:id" element={<SingleToolDetails />} />
       </Routes>
     </BrowserRouter>
   );

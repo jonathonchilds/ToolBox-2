@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import ToolTile from "src/components/ToolTile";
 
 import { ToolType } from "src/types";
 
@@ -26,10 +27,14 @@ const NullTool: ToolType = {
   purchasePrice: 0,
 };
 
-export function Tool() {
+export default function Tool() {
   const { id } = useParams<{ id: string }>();
   const { data: tool = NullTool } = useQuery<ToolType>(["one-tool", id], () =>
     loadOneTool(id)
   );
-  return <div>{tool.name}</div>;
+  return (
+    <div>
+      <p>{tool.name}</p>
+    </div>
+  );
 }
