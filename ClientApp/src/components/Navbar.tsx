@@ -15,7 +15,7 @@ function Navbar() {
     <nav>
       {/* Overall navbar */}
       <div
-        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-8`}
+        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-6`}
       >
         {/* Components container of the navbar */}
         <div className={`${flexBetween} mx-auto w-5/6`}>
@@ -28,10 +28,11 @@ function Navbar() {
             {/* RIGHT SIDE */}
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
-                <div className={`${flexBetween} gap-8 text-sm`}>
-                  <Link to="/">View All Tools</Link>
+                <div className={`${flexBetween} gap-8 text-base`}>
+                  <Link to="/">Home</Link>
+                  <Link to="/checkout">Checkout</Link>
                   <Link to="/add-a-tool">Add A Tool</Link>
-                  <Link to="/contact-us">Contact Jonathon</Link>
+                  <Link to="/about">About</Link>
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>

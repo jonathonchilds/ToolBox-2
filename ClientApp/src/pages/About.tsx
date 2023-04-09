@@ -2,7 +2,7 @@ import React from "react";
 import backgroundImg from "../images/pointy-glove-guy.jpg";
 import logo from "../images/logo.png";
 
-export default function ContactUs() {
+export default function About() {
   return (
     <div className="relative w-full bg-zinc-900/90">
       <img
@@ -18,25 +18,29 @@ export default function ContactUs() {
               className="relative flex max-w-[50%] justify-center py-2"
             />
           </div>
-          <h1>
-            Hello, and welcome to my capstone app! <br></br>
-            <br></br>
-          </h1>
-          <p>
-            I have lovingly crafted the styling, components, pages, buttons,
-            etc. using Tailwind.<br></br> <br></br>
-            The back end was created using C#, .NET, ASP.NET Core, Entity
-            Framework, & PostgreSQL. <br></br>
-            <br></br>
-            The front end is built with TypeScript & React. <br></br>
-            <br></br>
+          <p className="text-center">
+            <h1>
+              Welcome to my capstone app! <br></br>
+              <br></br>
+            </h1>
+            <p>
+              I have crafted all of the styling with Tailwind, and I&apos;m
+              enjoying Tailwind very much!<br></br> <br></br>
+              This is the first project I&apos;ve created using a CSS framework.
+              &#40;I learned with plain old CSS!&#41;<br></br> <br></br>
+              The back end was created using C#, .NET, ASP.NET Core, Entity
+              Framework, & PostgreSQL. <br></br>
+              <br></br>
+              The front end is built with TypeScript & React. <br></br>
+              <br></br>
+            </p>
+            <p>
+              Please understand that this app is a constant work-in-progress and
+              it&apos;s my current home base for applying new concepts.{" "}
+              <br></br> <br></br>
+            </p>
+            <p>Enjoy! :)</p>
           </p>
-          <p>
-            Please understand that this app is a constant work-in-progress and
-            it&apos;s my current home base for applying new concepts. <br></br>{" "}
-            <br></br>
-          </p>
-          <p>Enjoy! :)</p>
           <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             <a href="mailto:jonathon.k.childs@gmail.com">
               Hire Jonathon! (Opens email)

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function SignIn() {
   return (
-    <div className="relative w-full bg-zinc-900/90">
+    <div className="h-full w-full bg-zinc-900/90 object-cover">
       <img
         src={backgroundImg}
         className="absolute h-full w-full object-cover mix-blend-overlay"

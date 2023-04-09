@@ -2,9 +2,10 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import ToolTile from "src/components/ToolTile";
+import { Button } from "../components/Buttons";
 
 import { ToolType } from "src/types";
+import { formatPrice } from "../utilities/FormatPrice";
 
 async function loadOneTool(id?: string) {
   const response = await fetch(`api/tools/${id}`);
@@ -33,8 +34,43 @@ export default function Tool() {
     loadOneTool(id)
   );
   return (
-    <div>
-      <p>{tool.name}</p>
+    <div className="flex flex-wrap justify-center p-8 md:flex md:flex-row">
+      <img src={`${tool.imageUrl}`} alt="Tool image" className="rounded" />
+      <div className="p-4 ">
+        <h2 className="mb-2 text-lg font-semibold">{tool.name}</h2>
+        <p className="leading-relaxed text-gray-700">
+          Tool description goes here.
+        </p>
+        <div>
+          {tool.borrow === true ? (
+            <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
+          ) : (
+            ""
+          )}
+        </div>
+        <div>
+          {tool.rent === true ? (
+            <Button
+              label={`${formatPrice(tool.rentPrice)} rental`}
+              color="blue-500"
+              hoverColor="blue-700"
+            />
+          ) : (
+            ""
+          )}
+        </div>
+        <div>
+          {tool.purchase === true ? (
+            <Button
+              label={`${formatPrice(tool.purchasePrice)} purchase`}
+              color="blue-500"
+              hoverColor="blue-700"
+            />
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
     </div>
   );
 }

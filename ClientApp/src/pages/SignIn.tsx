@@ -7,14 +7,9 @@ import { Link } from "react-router-dom";
 
 export default function SignIn() {
   return (
-    <div className="relative w-full bg-zinc-900/90">
-      <img
-        src={backgroundImg}
-        className="absolute h-full w-full object-cover mix-blend-overlay"
-        alt="Friendly machinist with a mustache, a glove, and a smile."
-      />
+    <div className="h-full bg-slate-50">
       <div className="flex items-center justify-center p-8">
-        <form className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8">
+        <form className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-primary-500 bg-secondary-400 p-8">
           <div className="flex justify-center py-4">
             <img src={logo} className="relative " />
           </div>
