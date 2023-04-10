@@ -9,21 +9,18 @@ export default function About() {
         <div className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8 shadow-lg">
           <p className="text-center">
             <h1 className="mt-2 text-xl">Welcome to my capstone app!</h1>
-            <br></br>
-
-            <p>
-              Front End: TypeScript, React, Vite <br></br> <br></br>
-              Backend: C#, .NET, ASP.NET Core, Entity Framework, PostgreSQL{" "}
-              <br></br> <br></br>
-              Styling: Tailwind CSS
-              <br></br>
-              <br></br>
-            </p>
-            <p>
-              &#40;This app is a constant work-in-progress and it&apos;s my
-              current sandbox for applying new concepts.&#41; <br></br>{" "}
-              <br></br>
-            </p>
+            <br />
+            Front End: TypeScript, React, Vite <br />
+            <br />
+            Backend: C#, .NET, ASP.NET Core, Entity Framework, PostgreSQL <br />
+            <br />
+            Styling: Tailwind CSS
+            <br />
+            <br />
+            &#40;This app is a evolving! <br />
+            It&apos;s my current sandbox for experimenting with new concepts &
+            ideas.&#41; <br />
+            <br />
             <p>Enjoy!</p>
           </p>
           <button className="my-4 mt-8 w-full animate-bounce rounded bg-gray-500 py-3 text-white hover:bg-primary-500">

@@ -30,9 +30,9 @@ function Navbar() {
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-base`}>
                   <Link to="/">Home</Link>
-                  <Link to="/checkout">Checkout</Link>
-                  <Link to="/add-a-tool">Add A Tool</Link>
                   <Link to="/about">About</Link>
+                  <Link to="/add-a-tool">Add A Tool</Link>
+                  <Link to="/checkout">Checkout</Link>
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <Link to="/sign-in">Sign In</Link>
@@ -85,10 +85,11 @@ function Navbar() {
           </div>
           <div className="ml-[30%] mr-2 flex flex-col gap-10 text-2xl">
             <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/add-a-tool">Add A Tool</Link>
             <Link to="/sign-in">Sign In</Link>
             <Link to="/sign-up">Sign Up</Link>
-            <Link to="/add-a-tool">Add A Tool</Link>
-            <Link to="/contact-us">Contact Jonathon</Link>
+            <Link to="/checkout">Checkout</Link>
           </div>
         </div>
       )}
