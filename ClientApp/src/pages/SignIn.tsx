@@ -9,8 +9,8 @@ export default function SignIn() {
   return (
     <div className="h-full">
       <div className="flex items-center justify-center p-10">
-        <form className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl">
-          <h1 className="flex justify-center text-xl font-semibold">Sign In</h1>
+        <form className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-10 text-gray-950 shadow-xl">
+          <h1 className="flex justify-center text-2xl ">Sign In</h1>
           <div className="flex justify-around pb-8 pt-4">
             <p className="flex cursor-pointer  bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
               <BsFacebook />

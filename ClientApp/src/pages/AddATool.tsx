@@ -72,31 +72,27 @@ export default function AddATool() {
       <div className="flex items-center justify-center p-10 ">
         <form
           onSubmit={handleFormSubmit}
-          className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 shadow-xl"
+          className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-10 shadow-xl"
         >
           {errorMessage ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
               {errorMessage}
             </p>
           ) : null}
-
-          <h1 className=" align-items-center relative m-4 mt-2 flex justify-center text-xl font-semibold">
-            Add a tool!
+          <h1 className=" align-items-center flex justify-center pb-4 text-2xl">
+            Add a Tool
           </h1>
-          <div className="flex justify-around"></div>
-          <p className="mb-4 flex flex-col">
+          <p className="mb-4 flex flex-col pb-2">
             <input
               name="name"
-              className=" my-2 rounded px-3 py-2"
+              className="my-2 rounded px-3 py-2"
               type="text"
               onChange={handleStringFieldChange}
-              placeholder="Name of the tool?"
+              placeholder="Tool Name"
             />
           </p>
-          <div className="mb-4 flex flex-col">
-            <label className="font-semibold">
-              Can people borrow this tool (at no charge)?
-            </label>
+          <div className="mb-4 flex flex-col pb-6">
+            <label>Can people borrow this tool (at no charge)?</label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
@@ -118,8 +114,8 @@ export default function AddATool() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold">Can this tool be rented?</label>
+          <div className="flex flex-col pb-6">
+            <label>Can this tool be rented?</label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
@@ -150,8 +146,8 @@ export default function AddATool() {
               />
             </p>
           </div>
-          <div className=" mb-4 flex flex-col ">
-            <label className="font-semibold">Can this tool be purchased?</label>
+          <div className=" mb-4 flex flex-col pb-6 ">
+            <label>Can this tool be purchased?</label>
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
