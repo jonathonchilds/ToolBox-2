@@ -34,7 +34,7 @@ export default function Tool() {
     loadOneTool(id)
   );
   return (
-    <div className="flex flex-wrap justify-center p-8 md:flex md:flex-row">
+    <div className="flex flex-wrap justify-center p-14 md:flex md:flex-row">
       <img src={`${tool.imageUrl}`} alt="Tool image" className="rounded" />
       <div className="p-4 ">
         <h2 className="mb-2 text-lg font-semibold">{tool.name}</h2>

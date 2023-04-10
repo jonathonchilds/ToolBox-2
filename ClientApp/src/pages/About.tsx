@@ -5,7 +5,7 @@ import logo from "../images/logo.png";
 export default function About() {
   return (
     <div className="h-full w-full">
-      <div className="flex h-full items-center justify-center p-8">
+      <div className="flex items-center justify-center p-10">
         <div className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8 shadow-lg">
           <p className="text-center">
             <h1 className="mt-2 text-xl">Welcome to my capstone app!</h1>
@@ -26,7 +26,7 @@ export default function About() {
             </p>
             <p>Enjoy!</p>
           </p>
-          <button className="my-4 mt-8 w-full rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="my-4 mt-8 w-full animate-bounce rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
             <a href="mailto:jonathon.k.childs@gmail.com">
               Hire Jonathon! (e-mail)
             </a>

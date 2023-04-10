@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function SignIn() {
   return (
     <div className="h-full">
-      <div className="flex items-center justify-center p-8">
+      <div className="flex items-center justify-center p-10">
         <form className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl">
           <h1 className="flex justify-center text-xl font-semibold">Sign In</h1>
           <div className="flex justify-around pb-8 pt-4">

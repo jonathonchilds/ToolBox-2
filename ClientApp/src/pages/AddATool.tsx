@@ -69,7 +69,7 @@ export default function AddATool() {
 
   return (
     <div className="h-full w-full">
-      <div className="flex items-center justify-center p-8 ">
+      <div className="flex items-center justify-center p-10 ">
         <form
           onSubmit={handleFormSubmit}
           className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 shadow-xl"

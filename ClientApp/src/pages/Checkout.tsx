@@ -64,7 +64,7 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
   );
 
   return (
-    <div className="container mx-auto my-6 ">
+    <div className="container mx-auto my-8 ">
       <h1 className="mb-8 text-2xl font-bold">Checkout Page</h1>
       <div className="grid grid-cols-2 gap-4">
         <div>
