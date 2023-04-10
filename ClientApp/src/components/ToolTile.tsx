@@ -7,8 +7,8 @@ import { Button } from "./Buttons";
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
     <div className="w-full flex-wrap p-4 md:w-1/5">
-      <div className="h-80 w-80 flex-col overflow-hidden rounded  border-primary-500 shadow-md hover:shadow-xl">
-        <div className="h-3/4 ">
+      <div className="h-80 w-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl">
+        <div className="h-3/4">
           <Link to={`/${tool.id}`}>
             <img
               className="h-full w-full object-cover hover:cursor-pointer"
@@ -36,14 +36,14 @@ function ToolTile({ tool }: { tool: ToolType }) {
               ""
             )}
 
-            <div className="max-w-fit px-2 text-gray-950 ">
+            <div className="max-w-fit px-2">
               {tool.rent === true ? (
                 <Button label={`Rent`} color="blue-500" hoverColor="blue-700" />
               ) : (
                 ""
               )}
             </div>
-            <div className="my-0 max-w-fit px-2 text-base text-gray-950 ">
+            <div className="my-0 max-w-fit px-2 ">
               {tool.purchase === true ? (
                 <Button
                   label={`Purchase`}

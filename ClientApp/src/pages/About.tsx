@@ -4,49 +4,34 @@ import logo from "../images/logo.png";
 
 export default function About() {
   return (
-    <div className="relative w-full bg-zinc-900/90">
-      <img
-        src={backgroundImg}
-        className="absolute h-full w-full object-cover mix-blend-overlay"
-        alt="Friendly machinist with a mustache, a glove, and a smile."
-      />
+    <div className="h-full w-full">
       <div className="flex h-full items-center justify-center p-8">
         <div className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 p-8 shadow-lg">
-          <div className="flex justify-center py-4 ">
-            <img
-              src={logo}
-              className="relative flex max-w-[50%] justify-center py-2"
-            />
-          </div>
           <p className="text-center">
-            <h1>
-              Welcome to my capstone app! <br></br>
-              <br></br>
-            </h1>
+            <h1 className="mt-2 text-xl">Welcome to my capstone app!</h1>
+            <br></br>
+
             <p>
-              I have crafted all of the styling with Tailwind, and I&apos;m
-              enjoying Tailwind very much!<br></br> <br></br>
-              This is the first project I&apos;ve created using a CSS framework.
-              &#40;I learned with plain old CSS!&#41;<br></br> <br></br>
-              The back end was created using C#, .NET, ASP.NET Core, Entity
-              Framework, & PostgreSQL. <br></br>
-              <br></br>
-              The front end is built with TypeScript & React. <br></br>
-              <br></br>
-            </p>
-            <p>
-              Please understand that this app is a constant work-in-progress and
-              it&apos;s my current home base for applying new concepts.{" "}
+              Front End: TypeScript, React, Vite <br></br> <br></br>
+              Backend: C#, .NET, ASP.NET Core, Entity Framework, PostgreSQL{" "}
               <br></br> <br></br>
+              Styling: Tailwind CSS
+              <br></br>
+              <br></br>
             </p>
-            <p>Enjoy! :)</p>
+            <p>
+              &#40;This app is a constant work-in-progress and it&apos;s my
+              current sandbox for applying new concepts.&#41; <br></br>{" "}
+              <br></br>
+            </p>
+            <p>Enjoy!</p>
           </p>
-          <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="my-4 mt-8 w-full rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
             <a href="mailto:jonathon.k.childs@gmail.com">
-              Hire Jonathon! (Opens email)
+              Hire Jonathon! (e-mail)
             </a>
           </button>
-          <button className="mt-8 w-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="my-2 w-full rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
             <a href="https://www.linkedin.com/in/jonathon-childs-97b43651/">
               Jonathon&apos;s LinkedIn
             </a>

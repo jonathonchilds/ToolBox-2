@@ -68,23 +68,18 @@ export default function AddATool() {
   }
 
   return (
-    <div className="h-full w-full bg-slate-50">
+    <div className="h-full w-full">
       <div className="flex items-center justify-center p-8 ">
         <form
           onSubmit={handleFormSubmit}
-          className="relative mx-auto w-full max-w-[400px] rounded-lg  bg-secondary-400 p-8 shadow-xl"
+          className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 shadow-xl"
         >
           {errorMessage ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
               {errorMessage}
             </p>
           ) : null}
-          <div className="flex justify-center py-4 ">
-            <img
-              src={logo}
-              className="max-w-screen-lg relative flex justify-center"
-            />
-          </div>
+
           <h1 className=" align-items-center relative m-4 mt-2 flex justify-center text-xl font-semibold">
             Add a tool!
           </h1>
@@ -92,7 +87,7 @@ export default function AddATool() {
           <p className="mb-4 flex flex-col">
             <input
               name="name"
-              className=" my-2 rounded-full  bg-gray-50 px-3 py-2"
+              className=" my-2 rounded px-3 py-2"
               type="text"
               onChange={handleStringFieldChange}
               placeholder="Name of the tool?"
@@ -110,7 +105,6 @@ export default function AddATool() {
                   name="borrow"
                   value="Yes"
                   onChange={handleRadioClick}
-                  className=" relative bg-gray-50"
                 />
               </div>
               <div>
@@ -120,7 +114,6 @@ export default function AddATool() {
                   name="borrow"
                   value="No"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
                 />
               </div>
             </div>
@@ -135,7 +128,6 @@ export default function AddATool() {
                   name="rent"
                   value="Yes"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
                 />
               </div>
               <div>
@@ -145,14 +137,13 @@ export default function AddATool() {
                   name="rent"
                   value="No"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
                 />
               </div>
             </div>
             <p className="mb-4 flex flex-col">
               <input
                 name="rentPrice"
-                className="my-1 rounded-full  bg-gray-50 px-3  py-2"
+                className="my-1 rounded px-3  py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
                 placeholder="Rental price per day (e.g. 19.99)"
@@ -169,7 +160,6 @@ export default function AddATool() {
                   name="purchase"
                   value="Yes"
                   onChange={handleRadioClick}
-                  className="relative border bg-gray-50"
                 />
               </div>
               <div>
@@ -179,14 +169,13 @@ export default function AddATool() {
                   name="purchase"
                   value="No"
                   onChange={handleRadioClick}
-                  className="relative  border bg-gray-50"
                 />
               </div>
             </div>
             <p className="mb-4 flex flex-col">
               <input
                 name="purchasePrice"
-                className="my-1 rounded-full  bg-gray-50 px-3 py-2"
+                className="my-1 rounded px-3 py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
                 placeholder="Purchase price (e.g. 19.99)"

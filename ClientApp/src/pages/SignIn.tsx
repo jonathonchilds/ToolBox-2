@@ -7,35 +7,33 @@ import { Link } from "react-router-dom";
 
 export default function SignIn() {
   return (
-    <div className="h-full bg-slate-50">
+    <div className="h-full">
       <div className="flex items-center justify-center p-8">
-        <form className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-primary-500 bg-secondary-400 p-8">
-          <div className="flex justify-center py-4">
-            <img src={logo} className="relative " />
-          </div>
+        <form className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl">
+          <h1 className="flex justify-center text-xl font-semibold">Sign In</h1>
           <div className="flex justify-around pb-8 pt-4">
-            <p className="relative flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
+            <p className="flex cursor-pointer  bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
               <BsFacebook />
             </p>
-            <p className="relative flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
+            <p className=" flex cursor-pointer  bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
               <FcGoogle />
             </p>
           </div>
           <div className="mb-4 flex flex-col">
             <input
-              className="relative rounded-full border border-stone-500 bg-gray-50 p-2 px-4"
+              className="rounded p-2 px-4"
               type="text"
               placeholder="Username"
             />
           </div>
           <div className="flex flex-col ">
             <input
-              className="relative rounded-full border border-stone-500 bg-gray-50 p-2 px-4 "
+              className="rounded p-2 px-4 "
               type="password"
               placeholder="Password"
             />
           </div>
-          <button className="mt-8 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className="mt-8 w-full rounded-lg bg-gray-500 py-3 text-white hover:bg-primary-500">
             Sign In
           </button>
           <p className="mt-3 flex items-center">
