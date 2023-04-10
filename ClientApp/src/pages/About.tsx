@@ -17,9 +17,11 @@ export default function About() {
             Styling: Tailwind CSS
             <br />
             <br />
-            &#40;This app is a evolving! <br />
+            This app is evolving! <br />
+            <br />
             It&apos;s my current sandbox for experimenting with new concepts &
-            ideas.&#41; <br />
+            ideas.
+            <br />
             <br />
             <p>Enjoy!</p>
           </p>
