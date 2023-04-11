@@ -23,3 +23,13 @@ export type APIError = {
   traceId: string;
   type: string;
 };
+
+export type UserType = {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  zipCode?: number;
+  isContractor: boolean;
+  userName: string;
+  password: string;
+};
