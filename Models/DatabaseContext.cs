@@ -15,6 +15,7 @@ namespace ToolBox.Models
 
         // Add database tables here
         public DbSet<Tool> Tools { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
