@@ -28,8 +28,9 @@ export type UserType = {
   id?: number;
   firstName: string;
   lastName: string;
-  zipCode?: number;
+  email: string;
+  zipCode: string;
   isContractor: boolean;
-  userName: string;
+  username: string;
   password: string;
 };

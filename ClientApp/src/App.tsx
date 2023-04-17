@@ -14,6 +14,7 @@ import AddATool from "./pages/AddATool";
 import SingleToolDetails from "./pages/SingleToolDetails";
 import CheckoutPage from "./pages/Checkout";
 import About from "./pages/About";
+import SignUpV2 from "./pages/SignUpV2";
 
 type Product = {
   id: string;
@@ -39,7 +40,7 @@ function App() {
         <Route path="/add-a-tool" element={<AddATool />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up" element={<SignUpV2 />} />
         <Route path="/:id" element={<SingleToolDetails />} />
         <Route
           path="/checkout"

@@ -8,15 +8,19 @@ namespace ToolBox.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "You must provide your name")]
-        public string FullName { get; set; }
+        [Required(ErrorMessage = "You must provide your first name")]
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "You must provide your email")]
         public string Email { get; set; }
 
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
 
         public bool IsContractor { get; set; }
+
+        public string UserName { get; set; }
 
         [JsonIgnore]
         public string HashedPassword { get; set; }

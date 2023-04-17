@@ -20,6 +20,10 @@ export default function AddATool() {
 
   const [errorMessage, setErrorMessage] = useState("");
 
+  function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setNewTool({ ...newTool, [event.target.name]: event.target.value });
+  }
+
   async function submitNewTool(tool: ToolType) {
     const response = await fetch("/api/Tools", {
       method: "POST",
@@ -43,13 +47,9 @@ export default function AddATool() {
     },
   });
 
-  async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function _formSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     createNewTool.mutate(newTool);
-  }
-
-  function handleStringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewTool({ ...newTool, [event.target.name]: event.target.value });
   }
 
   function handlePriceFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -71,7 +71,7 @@ export default function AddATool() {
     <div className="h-full w-full">
       <div className="flex items-center justify-center p-10 ">
         <form
-          onSubmit={handleFormSubmit}
+          onSubmit={_formSubmit}
           className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-10 shadow-xl"
         >
           {errorMessage ? (
@@ -84,10 +84,11 @@ export default function AddATool() {
           </h1>
           <p className="mb-4 flex flex-col pb-2">
             <input
+              autoFocus
               name="name"
               className="my-2 rounded px-3 py-2"
               type="text"
-              onChange={handleStringFieldChange}
+              onChange={_stringFieldChange}
               placeholder="Tool Name"
             />
           </p>

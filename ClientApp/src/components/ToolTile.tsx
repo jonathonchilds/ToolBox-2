@@ -7,7 +7,7 @@ import { Button } from "./Buttons";
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
     <div className="w-full flex-wrap p-4 md:w-1/5">
-      <div className="h-80 w-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl">
+      <div className="h-80 w-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl sm:h-64 sm:w-64">
         <div className="h-3/4">
           <Link to={`/${tool.id}`}>
             <img
