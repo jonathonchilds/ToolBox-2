@@ -1,4 +1,7 @@
 {
   "name": "toolbox",
-  "private": "true"
+  "private": "true",
+  "dependencies": {
+    "react-icons": "^4.8.0"
+  }
 }
