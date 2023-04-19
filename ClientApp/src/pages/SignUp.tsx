@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/Ai";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { UserType, APIError } from "src/types";
 
