@@ -3,7 +3,6 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useForm } from "react-hook-form";
 import { UserType, APIError } from "src/types";
 import { useMutation } from "react-query";
 
@@ -75,6 +74,11 @@ export default function SignIn() {
       [event.target.name]: event.target.value === "Yes" ? true : false,
     });
   }
+
+  const inputStyling = "h-8 rounded px-3";
+  const oAuthIconStyling =
+    "flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl";
+
   return (
     <div className="h-full w-full">
       <div className="flex items-center justify-center p-8 ">
@@ -88,36 +92,36 @@ export default function SignIn() {
             </p>
           ) : null}
           <h1 className="flex justify-center text-2xl ">Sign Up</h1>
-          <div className="flex justify-around p-8 ">
-            <p className="flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
+          <section className="flex justify-around p-8 ">
+            <p className={oAuthIconStyling}>
               <BsFacebook />
             </p>
-            <p className="flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl">
+            <p className={oAuthIconStyling}>
               <FcGoogle />
             </p>
-          </div>
-          <div className="mb-4 flex  flex-col">
+          </section>
+          <p className="mb-4 flex flex-col">
             <label className="mb-1 px-1">First Name</label>
             <input
               autoFocus
-              className="h-8 rounded px-3"
+              className={inputStyling}
               placeholder="First Name"
               name="firstName"
               type="text"
               onChange={_stringFieldChange}
             />
-          </div>
-          <div className="mb-4 flex flex-col">
+          </p>
+          <p className="mb-4 flex flex-col">
             <label className="mb-1 px-1">Last Name</label>
             <input
-              className="h-8 rounded px-3"
+              className={inputStyling}
               placeholder="Last Name"
               name="lastName"
               type="text"
               onChange={_stringFieldChange}
             />
-          </div>
-          <div className="mb-4 flex flex-col">
+          </p>
+          <p className="mb-4 flex flex-col">
             <label className="mb-1 px-1">Email</label>
             <input
               className="h-8 rounded px-3"
@@ -126,81 +130,85 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
-          </div>
-          <div className="mb-4 flex flex-col">
+          </p>
+          <p className="mb-4 flex flex-col">
             <label className="mb-1 px-1">Zip Code</label>
             <input
-              className="h-8 rounded px-3"
+              className={inputStyling}
               placeholder="Zip Code"
               name="zipCode"
               type="text"
               onChange={_stringFieldChange}
             />
-          </div>
-          <div className="mb-2 flex flex-col pt-2">
-            <label className="px-1">Are you a licensed contractor?</label>
-            <div className="flex w-full justify-around py-2">
-              <div>
-                <label className="px-2">Yes</label>
-                <input
-                  type="radio"
-                  name="isContractor"
-                  value="Yes"
-                  onChange={handleRadioClick}
-                />
+          </p>
+          <fieldset>
+            <section className="mb-2 flex flex-col pt-2">
+              <legend className="px-1">Are you a licensed contractor?</legend>
+              <div className="flex w-full justify-around py-2">
+                <p>
+                  <input
+                    type="radio"
+                    name="isContractor"
+                    value="Yes"
+                    onChange={handleRadioClick}
+                  />
+                  <label className="px-2">Yes</label>
+                </p>
+                <p>
+                  <input
+                    type="radio"
+                    name="isContractor"
+                    value="No"
+                    onChange={handleRadioClick}
+                  />
+                  <label className="px-2">No</label>
+                </p>
               </div>
-              <div>
-                <label className="px-2">No</label>
-                <input
-                  type="radio"
-                  name="isContractor"
-                  value="No"
-                  onChange={handleRadioClick}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="mb-4 flex flex-col pt-2">
+            </section>
+          </fieldset>
+          <p className="mb-4 flex flex-col pt-2">
             <label className="mb-1 px-1">Create a Username</label>
             <input
-              className="h-8 rounded px-3"
+              className={inputStyling}
               placeholder="Create a Username"
               name="username"
               type="text"
               onChange={_stringFieldChange}
             />
-          </div>
-          <div className="relative mb-4 flex flex-col pt-2 ">
-            <label className="mb-1 px-1">Create a Password</label>
-            <input
-              className="h-8 rounded px-3"
-              type={passwordEye === false ? "password" : "text"}
-              placeholder="Password"
-            />
-            <div className="absolute right-3 top-10 flex cursor-pointer text-2xl">
-              {passwordEye === false ? (
-                <AiFillEyeInvisible onClick={_passwordClick} />
-              ) : (
-                <AiFillEye onClick={_passwordClick} />
-              )}
-            </div>
-          </div>
-          <div className="relative flex flex-col ">
-            <label className="mb-1 px-1">Confirm Password</label>
-            <input
-              className="h-8 rounded px-3"
-              type={confirmPasswordEye === false ? "password" : "text"}
-              placeholder="Confirm Password"
-            />
+          </p>
+          <fieldset>
+            <p className="relative mb-4 flex flex-col pt-2 ">
+              <legend className="mb-1 px-1">Create a Password</legend>
+              <input
+                className={inputStyling}
+                type={passwordEye === false ? "password" : "text"}
+                placeholder="Password"
+              />
+              <div className="absolute right-3 top-10 flex cursor-pointer text-2xl">
+                {passwordEye === false ? (
+                  <AiFillEyeInvisible onClick={_passwordClick} />
+                ) : (
+                  <AiFillEye onClick={_passwordClick} />
+                )}
+              </div>
+            </p>
+            <p className="relative flex flex-col ">
+              <label className="mb-1 px-1">Confirm Password</label>
+              <input
+                className={inputStyling}
+                type={confirmPasswordEye === false ? "password" : "text"}
+                placeholder="Confirm Password"
+              />
 
-            <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
-              {confirmPasswordEye === false ? (
-                <AiFillEyeInvisible onClick={_confirmPasswordClick} />
-              ) : (
-                <AiFillEye onClick={_confirmPasswordClick} />
-              )}
-            </div>
-          </div>
+              <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
+                {confirmPasswordEye === false ? (
+                  <AiFillEyeInvisible onClick={_confirmPasswordClick} />
+                ) : (
+                  <AiFillEye onClick={_confirmPasswordClick} />
+                )}
+              </div>
+            </p>
+          </fieldset>
           <button className="mt-8 w-full rounded-xl bg-gray-500 py-3 text-white hover:bg-primary-500">
             Sign Up
           </button>

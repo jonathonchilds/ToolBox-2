@@ -5,16 +5,15 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import ContactUs from "./pages/About";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import AddATool from "./pages/AddATool";
 import SingleToolDetails from "./pages/SingleToolDetails";
 import CheckoutPage from "./pages/Checkout";
 import About from "./pages/About";
 import SignUpV2 from "./pages/SignUpV2";
+import SignUp from "./pages/SignUp";
 
 type Product = {
   id: string;
@@ -40,7 +39,7 @@ function App() {
         <Route path="/add-a-tool" element={<AddATool />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUpV2 />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/:id" element={<SingleToolDetails />} />
         <Route
           path="/checkout"
