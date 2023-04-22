@@ -11,7 +11,6 @@ export type ToolType = {
   rent: boolean;
   rentPrice: number;
   borrow: boolean;
-  borrowPrice: number;
   purchase: boolean;
   purchasePrice: number;
 };

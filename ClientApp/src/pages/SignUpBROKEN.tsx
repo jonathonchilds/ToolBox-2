@@ -33,18 +33,6 @@ export default function SignIn() {
     }
   };
 
-  // const _radioClickConst = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   event.target.value === "yes" ? true : false;
-  // };
-
-  function _radioClick(value: string): boolean {
-    if (value === "yes") {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   const _passwordClick = () => {
     setPasswordEye(!passwordEye);
   };
@@ -122,11 +110,7 @@ export default function SignIn() {
             <div className="flex w-full justify-around py-2">
               <div>
                 <label className="px-2">Yes</label>
-                <input
-                  type="radio"
-                  value={"yes"}
-                  //{...register("isContractor", _radioClick)}
-                />
+                <input type="radio" value="yes" {...register("isContractor")} />
               </div>
               <div>
                 <label className="px-2">No</label>

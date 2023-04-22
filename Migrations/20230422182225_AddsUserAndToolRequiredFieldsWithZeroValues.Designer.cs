@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ToolBox.Models;
@@ -9,9 +10,10 @@ using ToolBox.Models;
 namespace ToolBox.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230422182225_AddsUserAndToolRequiredFieldsWithZeroValues")]
+    partial class AddsUserAndToolRequiredFieldsWithZeroValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +30,9 @@ namespace ToolBox.Migrations
 
                     b.Property<bool>("Borrow")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("BorrowPrice")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
