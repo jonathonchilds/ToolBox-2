@@ -6,16 +6,18 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { UserType, APIError } from "src/types";
 import { useMutation } from "react-query";
 
+import {
+  button,
+  input,
+  inputContainer,
+  formContainer,
+  oAuthIcon,
+} from "../styling/tailwindClasses";
+
 export default function SignIn() {
   const [passwordEye, setPasswordEye] = useState(false);
   const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
-
-  const _passwordClick = () => {
-    setPasswordEye(!passwordEye);
-  };
-  const _confirmPasswordClick = () => {
-    setConfirmPasswordEye(!confirmPasswordEye);
-  };
+  const [errorMessage, setErrorMessage] = useState("");
   const [newUser, setNewUser] = useState<UserType>({
     firstName: "",
     lastName: "",
@@ -25,12 +27,6 @@ export default function SignIn() {
     username: "",
     password: "",
   });
-
-  const [errorMessage, setErrorMessage] = useState("");
-
-  function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewUser({ ...newUser, [event.target.name]: event.target.value });
-  }
 
   async function submitNewUser(user: UserType) {
     const response = await fetch("/api/User", {
@@ -60,6 +56,16 @@ export default function SignIn() {
     createNewUser.mutate(newUser);
   }
 
+  const _passwordClick = () => {
+    setPasswordEye(!passwordEye);
+  };
+  const _confirmPasswordClick = () => {
+    setConfirmPasswordEye(!confirmPasswordEye);
+  };
+  function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setNewUser({ ...newUser, [event.target.name]: event.target.value });
+  }
+
   function handlePriceFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     const priceInCents = Math.round(parseFloat(event.target.value) * 100);
     setNewUser({
@@ -75,17 +81,13 @@ export default function SignIn() {
     });
   }
 
-  const inputStyling = "h-8 rounded px-3";
-  const oAuthIconStyling =
-    "flex cursor-pointer border bg-slate-50 px-6 py-2 pb-1 shadow-lg hover:shadow-xl";
+  const formStyling =
+    "mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl";
 
   return (
     <div className="h-full w-full">
-      <div className="flex items-center justify-center p-8 ">
-        <form
-          className="mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl"
-          onSubmit={_formSubmit}
-        >
+      <div className={formContainer}>
+        <form className={formStyling} onSubmit={_formSubmit}>
           {errorMessage ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
               {errorMessage}
@@ -93,35 +95,35 @@ export default function SignIn() {
           ) : null}
           <h1 className="flex justify-center text-2xl ">Sign Up</h1>
           <section className="flex justify-around p-8 ">
-            <p className={oAuthIconStyling}>
+            <p className={oAuthIcon}>
               <BsFacebook />
             </p>
-            <p className={oAuthIconStyling}>
+            <p className={oAuthIcon}>
               <FcGoogle />
             </p>
           </section>
-          <p className="mb-4 flex flex-col">
+          <p className={inputContainer}>
             <label className="mb-1 px-1">First Name</label>
             <input
               autoFocus
-              className={inputStyling}
+              className={input}
               placeholder="First Name"
               name="firstName"
               type="text"
               onChange={_stringFieldChange}
             />
           </p>
-          <p className="mb-4 flex flex-col">
+          <p className={inputContainer}>
             <label className="mb-1 px-1">Last Name</label>
             <input
-              className={inputStyling}
+              className={input}
               placeholder="Last Name"
               name="lastName"
               type="text"
               onChange={_stringFieldChange}
             />
           </p>
-          <p className="mb-4 flex flex-col">
+          <p className={inputContainer}>
             <label className="mb-1 px-1">Email</label>
             <input
               className="h-8 rounded px-3"
@@ -131,10 +133,10 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
           </p>
-          <p className="mb-4 flex flex-col">
+          <p className={inputContainer}>
             <label className="mb-1 px-1">Zip Code</label>
             <input
-              className={inputStyling}
+              className={input}
               placeholder="Zip Code"
               name="zipCode"
               type="text"
@@ -166,10 +168,10 @@ export default function SignIn() {
               </div>
             </section>
           </fieldset>
-          <p className="mb-4 flex flex-col pt-2">
+          <p className={`${inputContainer} pt-2`}>
             <label className="mb-1 px-1">Create a Username</label>
             <input
-              className={inputStyling}
+              className={input}
               placeholder="Create a Username"
               name="username"
               type="text"
@@ -177,10 +179,10 @@ export default function SignIn() {
             />
           </p>
           <fieldset>
-            <p className="relative mb-4 flex flex-col pt-2 ">
+            <p className={`${inputContainer} pt-2`}>
               <legend className="mb-1 px-1">Create a Password</legend>
               <input
-                className={inputStyling}
+                className={input}
                 type={passwordEye === false ? "password" : "text"}
                 placeholder="Password"
               />
@@ -195,7 +197,7 @@ export default function SignIn() {
             <p className="relative flex flex-col ">
               <label className="mb-1 px-1">Confirm Password</label>
               <input
-                className={inputStyling}
+                className={input}
                 type={confirmPasswordEye === false ? "password" : "text"}
                 placeholder="Confirm Password"
               />
@@ -209,9 +211,7 @@ export default function SignIn() {
               </div>
             </p>
           </fieldset>
-          <button className="mt-8 w-full rounded-xl bg-gray-500 py-3 text-white hover:bg-primary-500">
-            Sign Up
-          </button>
+          <button className={button}>Sign Up</button>
           <p className="mt-8 text-center">
             Already a member?{" "}
             <Link to="/sign-in" className="underline">

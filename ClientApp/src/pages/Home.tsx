@@ -11,12 +11,10 @@ export function Home() {
     ["tools", filterText],
     async function () {
       let url = "api/Tools";
-
       if (filterText.length !== 0) {
         url = `api/Tools?filter=${filterText}`;
       }
       const response = await fetch(url);
-
       return response.json();
     }
   );

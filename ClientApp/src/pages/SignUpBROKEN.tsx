@@ -18,14 +18,7 @@ export default function SignIn() {
     control,
     reset,
     formState: { errors },
-  } = useForm<UserType>();
-
-  const _passwordClick = () => {
-    setPasswordEye(!passwordEye);
-  };
-  const _confirmPasswordClick = () => {
-    setConfirmPasswordEye(!confirmPasswordEye);
-  };
+  } = useForm<UserType>({ defaultValues: { isContractor: true } });
 
   const onSubmit = async function submitNewUser(data: UserType) {
     const response = await fetch("/api/User", {
@@ -40,9 +33,24 @@ export default function SignIn() {
     }
   };
 
-  function _radioClick(event: React.ChangeEvent<HTMLInputElement>) {
-    event.target.value === "Yes" ? true : false;
+  // const _radioClickConst = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   event.target.value === "yes" ? true : false;
+  // };
+
+  function _radioClick(value: string): boolean {
+    if (value === "yes") {
+      return true;
+    } else {
+      return false;
+    }
   }
+
+  const _passwordClick = () => {
+    setPasswordEye(!passwordEye);
+  };
+  const _confirmPasswordClick = () => {
+    setConfirmPasswordEye(!confirmPasswordEye);
+  };
 
   return (
     <div className="h-full w-full">
@@ -116,19 +124,13 @@ export default function SignIn() {
                 <label className="px-2">Yes</label>
                 <input
                   type="radio"
-                  value="yes"
-                  name="isContractor"
-                  onChange={_radioClick}
+                  value={"yes"}
+                  //{...register("isContractor", _radioClick)}
                 />
               </div>
               <div>
                 <label className="px-2">No</label>
-                <input
-                  type="radio"
-                  name="isContractor"
-                  value="no"
-                  onChange={_radioClick}
-                />
+                <input type="radio" value="no" {...register("isContractor")} />
               </div>
             </div>
           </div>
