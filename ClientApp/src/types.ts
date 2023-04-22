@@ -9,10 +9,10 @@ export type ToolType = {
   name: string;
   imageUrl: string;
   rent: boolean;
-  rentPrice: number;
+  rentPrice: number | null;
   borrow: boolean;
   purchase: boolean;
-  purchasePrice: number;
+  purchasePrice: number | null;
 };
 
 export type APIError = {
@@ -29,7 +29,6 @@ export type UserType = {
   lastName: string;
   email: string;
   zipCode: string;
-  isContractor: boolean;
   username: string;
   password: string;
 };

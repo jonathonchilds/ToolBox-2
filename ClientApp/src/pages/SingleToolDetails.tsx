@@ -21,11 +21,10 @@ const NullTool: ToolType = {
   name: "",
   imageUrl: "",
   rent: false,
-  rentPrice: 0,
+  rentPrice: 0 || null,
   borrow: false,
-  borrowPrice: 0,
   purchase: false,
-  purchasePrice: 0,
+  purchasePrice: 0 || null,
 };
 
 export default function Tool() {
@@ -49,7 +48,7 @@ export default function Tool() {
           )}
         </div>
         <div>
-          {tool.rent === true ? (
+          {tool.rent && tool.rentPrice ? (
             <Button
               label={`${formatPrice(tool.rentPrice)} rental`}
               color="blue-500"
@@ -60,7 +59,7 @@ export default function Tool() {
           )}
         </div>
         <div>
-          {tool.purchase === true ? (
+          {tool.purchase && tool.purchasePrice ? (
             <Button
               label={`${formatPrice(tool.purchasePrice)} purchase`}
               color="blue-500"

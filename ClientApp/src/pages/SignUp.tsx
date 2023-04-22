@@ -23,7 +23,6 @@ export default function SignIn() {
     lastName: "",
     email: "",
     zipCode: "",
-    isContractor: false,
     username: "",
     password: "",
   });
@@ -71,13 +70,6 @@ export default function SignIn() {
     setNewUser({
       ...newUser,
       [event.target.name]: priceInCents,
-    });
-  }
-
-  function handleRadioClick(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewUser({
-      ...newUser,
-      [event.target.name]: event.target.value === "Yes" ? true : false,
     });
   }
 
@@ -143,31 +135,7 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
           </p>
-          <fieldset>
-            <section className="mb-2 flex flex-col pt-2">
-              <legend className="px-1">Are you a licensed contractor?</legend>
-              <div className="flex w-full justify-around py-2">
-                <p>
-                  <input
-                    type="radio"
-                    name="isContractor"
-                    value="Yes"
-                    onChange={handleRadioClick}
-                  />
-                  <label className="px-2">Yes</label>
-                </p>
-                <p>
-                  <input
-                    type="radio"
-                    name="isContractor"
-                    value="No"
-                    onChange={handleRadioClick}
-                  />
-                  <label className="px-2">No</label>
-                </p>
-              </div>
-            </section>
-          </fieldset>
+
           <p className={`${inputContainer} pt-2`}>
             <label className="mb-1 px-1">Create a Username</label>
             <input

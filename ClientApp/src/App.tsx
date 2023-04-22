@@ -12,8 +12,7 @@ import AddATool from "./pages/AddATool";
 import SingleToolDetails from "./pages/SingleToolDetails";
 import CheckoutPage from "./pages/Checkout";
 import About from "./pages/About";
-import SignUp from "./pages/SignUpWorking";
-//import SignUp from "./pages/SignUpBROKEN";
+import SignUp from "./pages/SignUp";
 
 type Product = {
   id: string;

@@ -20,9 +20,6 @@ namespace ToolBox.Models
         [Required(ErrorMessage = "Zip code is required.")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Please make a selection.")]
-        public bool IsContractor { get; set; }
-
         [Required(ErrorMessage = "Username is required.")]
         public string UserName { get; set; }
 
