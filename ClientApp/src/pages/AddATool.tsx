@@ -13,12 +13,11 @@ export default function AddATool() {
     rent: false,
     rentPrice: 0,
     borrow: false,
-    borrowPrice: 0,
     purchase: false,
     purchasePrice: 0,
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState<Record<string, string[]>>();
 
   function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTool({ ...newTool, [event.target.name]: event.target.value });
@@ -43,7 +42,7 @@ export default function AddATool() {
       navigate("/");
     },
     onError: function (apiError: APIError) {
-      setErrorMessage(Object.values(apiError.errors).join(" "));
+      console.log(Object.values(apiError.errors));
     },
   });
 
@@ -74,11 +73,11 @@ export default function AddATool() {
           onSubmit={_formSubmit}
           className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-10 shadow-xl"
         >
-          {errorMessage ? (
+          {/* {errorMessage.email[0] ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
               {errorMessage}
             </p>
-          ) : null}
+          ) : null} */}
           <h1 className=" align-items-center flex justify-center pb-4 text-2xl">
             Add a Tool
           </h1>

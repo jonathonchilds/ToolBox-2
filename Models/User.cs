@@ -11,7 +11,7 @@ namespace ToolBox.Models
         [Required(ErrorMessage = "First name is required.")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "First name is required.")]
+        [Required(ErrorMessage = "Last name is required.")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]
@@ -23,10 +23,9 @@ namespace ToolBox.Models
         [Required(ErrorMessage = "Username is required.")]
         public string UserName { get; set; }
 
-        [JsonIgnore]
+        [JsonIgnore, Required(ErrorMessage = "Password is required.")]
         public string HashedPassword { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
         public string Password
         {
             set

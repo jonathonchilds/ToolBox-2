@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ToolBox.Models;
@@ -9,9 +10,10 @@ using ToolBox.Models;
 namespace ToolBox.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230422204750_CorrectsLastNameError")]
+    partial class CorrectsLastNameError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +71,6 @@ namespace ToolBox.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("HashedPassword")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")

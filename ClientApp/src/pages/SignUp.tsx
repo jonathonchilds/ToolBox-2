@@ -17,7 +17,7 @@ import {
 export default function SignIn() {
   const [passwordEye, setPasswordEye] = useState(false);
   const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string[][]>();
   const [newUser, setNewUser] = useState<UserType>({
     firstName: "",
     lastName: "",
@@ -26,6 +26,8 @@ export default function SignIn() {
     username: "",
     password: "",
   });
+
+  console.log(errorMessage);
 
   async function submitNewUser(user: UserType) {
     const response = await fetch("/api/User", {
@@ -46,7 +48,7 @@ export default function SignIn() {
       navigate("/");
     },
     onError: function (apiError: APIError) {
-      setErrorMessage(Object.values(apiError.errors).join(" "));
+      setErrorMessage(Object.values(apiError.errors));
     },
   });
 
@@ -80,11 +82,6 @@ export default function SignIn() {
     <div className="h-full w-full">
       <div className={formContainer}>
         <form className={formStyling} onSubmit={_formSubmit}>
-          {errorMessage ? (
-            <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
-              {errorMessage}
-            </p>
-          ) : null}
           <h1 className="flex justify-center text-2xl ">Sign Up</h1>
           <section className="flex justify-around p-8 ">
             <p className={oAuthIcon}>
@@ -104,6 +101,11 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
+            {errorMessage ? (
+              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+                {errorMessage[4]}
+              </div>
+            ) : null}
           </p>
           <p className={inputContainer}>
             <label className="mb-1 px-1">Last Name</label>
@@ -114,6 +116,11 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
+            {errorMessage ? (
+              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+                {errorMessage[2]}
+              </div>
+            ) : null}
           </p>
           <p className={inputContainer}>
             <label className="mb-1 px-1">Email</label>
@@ -124,6 +131,11 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
+            {errorMessage ? (
+              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+                {errorMessage[0]}
+              </div>
+            ) : null}
           </p>
           <p className={inputContainer}>
             <label className="mb-1 px-1">Zip Code</label>
@@ -134,6 +146,11 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
+            {errorMessage ? (
+              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+                {errorMessage[1]}
+              </div>
+            ) : null}
           </p>
 
           <p className={`${inputContainer} pt-2`}>
@@ -145,6 +162,11 @@ export default function SignIn() {
               type="text"
               onChange={_stringFieldChange}
             />
+            {errorMessage ? (
+              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+                {errorMessage[3]}
+              </div>
+            ) : null}
           </p>
           <fieldset>
             <p className={`${inputContainer} pt-2`}>
