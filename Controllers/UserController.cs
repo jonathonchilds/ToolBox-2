@@ -36,13 +36,26 @@ namespace ToolBox.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            // Indicate to the database context we want to add this new record
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                // Indicate to the database context we want to add this new record
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
 
-            // Return a response that indicates the object was created (status code `201`) and some additional
-            // headers with details of the newly created object.
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                // Return a response that indicates the object was created (status code `201`) and some additional
+                // headers with details of the newly created object.
+                return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            }
+
+            catch (Microsoft.EntityFrameworkCore.DbUpdateException)
+            {
+                var response = new
+                {
+                    status = 400,
+                    errors = new List<string>() { "This account already exists!" }
+                };
+                return BadRequest(response);
+            }
         }
     }
 }

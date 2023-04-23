@@ -32,3 +32,18 @@ export type UserType = {
   username: string;
   password: string;
 };
+
+export type LoginUserType = {
+  email: string;
+  password: string;
+};
+
+export type LoginSuccess = {
+  token: string;
+  user: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
+};
