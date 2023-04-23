@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import backgroundImg from "../images/pointy-glove-guy.jpg";
-import logo from "../images/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useMutation } from "react-query";
+
 import {
   oAuthIcon,
   form,
   formContainer,
   button,
 } from "../styling/tailwindClasses";
-import { LoginSuccess, LoginUserType } from "src/types";
+import { APIError, LoginSuccess, LoginUserType } from "src/types";
+import { recordAuthentication } from "src/auth";
 
 export default function SignIn() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -37,10 +38,26 @@ export default function SignIn() {
     }
   }
 
+  const loginUserMutation = useMutation(loginUser, {
+    onSuccess: function (apiResponse) {
+      recordAuthentication(apiResponse);
+      window.location.assign("/");
+    },
+    onError: function (error: APIError) {
+      setErrorMessage(Object.values(error.errors).join(""));
+    },
+  });
+
   return (
     <div className="h-full">
       <div className={formContainer}>
-        <form className={form}>
+        <form
+          className={form}
+          onSubmit={function (event) {
+            event.preventDefault();
+            loginUserMutation.mutate(user);
+          }}
+        >
           <h1 className="flex justify-center text-2xl ">Sign In</h1>
           {errorMessage ? <p>{errorMessage}</p> : null}
           <div className="flex justify-around pb-8 pt-4">
@@ -52,11 +69,14 @@ export default function SignIn() {
             </p>
           </div>
           <p className="mb-4 flex flex-col">
-            <label className="mb-1 px-1">Username</label>
+            <label className="mb-1 px-1">Email</label>
             <input
               className="rounded p-2 px-4"
               type="text"
               placeholder="Username"
+              name="email"
+              value={user.email}
+              onChange={handleStringFieldChange}
             />
           </p>
           <p className="flex flex-col ">
@@ -65,6 +85,9 @@ export default function SignIn() {
               className="rounded p-2 px-4 "
               type="password"
               placeholder="Password"
+              name="password"
+              value={user.password}
+              onChange={handleStringFieldChange}
             />
           </p>
           <button className={button}>Sign In</button>
