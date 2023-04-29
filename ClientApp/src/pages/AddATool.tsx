@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
-
-import { APIError, ToolType } from "../types";
+import { useDropzone } from "react-dropzone";
+import { APIError, ToolType, UploadResponse } from "../types";
 import { authHeader } from "../auth";
 
 export default function AddATool() {
@@ -17,9 +17,70 @@ export default function AddATool() {
   });
 
   const [errorMessage, setErrorMessage] = useState<Record<string, string[]>>();
+  const [isUploading, setIsUploading] = useState(false);
 
   function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTool({ ...newTool, [event.target.name]: event.target.value });
+  }
+
+  function onDropFile(acceptedFiles: File[]) {
+    setIsUploading(true);
+    const fileToUpload = acceptedFiles[0];
+    uploadFileMutation.mutate(fileToUpload);
+  }
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  });
+
+  async function uploadFile(fileToUpload: File) {
+    // Create a formData object so we can send this
+    // to the API that is expecting some form data.
+    const formData = new FormData();
+
+    // Append a field that is the form upload itself
+    formData.append("file", fileToUpload);
+
+    // Use fetch to send an authorization header and
+    // a body containing the form data with the file
+    const response = await fetch("/api/Uploads", {
+      method: "POST",
+      headers: {
+        Authorization: authHeader(),
+      },
+      body: formData,
+    });
+
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw "Unable to upload image!";
+    }
+  }
+
+  const uploadFileMutation = useMutation(uploadFile, {
+    onSuccess: function (apiResponse: UploadResponse) {
+      const url = apiResponse.url;
+
+      submitNewTool({ ...newTool, photoURL: url });
+    },
+
+    onError: function (apiError: APIError) {
+      console.log(Object.values(apiError.errors));
+    },
+    onSettled: function () {
+      setIsUploading(false);
+    },
+  });
+
+  let dropZoneMessage = "Drag a picture of the tool here to upload!";
+
+  if (isUploading) {
+    dropZoneMessage = "Uploading...";
+  }
+
+  if (isDragActive) {
+    dropZoneMessage = "Drop the files here ...";
   }
 
   async function submitNewTool(tool: ToolType) {
@@ -173,12 +234,18 @@ export default function AddATool() {
             <p className="mb-4 flex flex-col">
               <input
                 name="purchasePrice"
-                className="my-1 rounded px-3 py-2"
+                className="my-1 rounded-full px-3 py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
                 placeholder="Purchase price (e.g. 19.99)"
               />
             </p>
+          </div>
+          <div className="mb-8 bg-gray-500 p-4 text-white">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
           </div>
           <button className="mt-2 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
             Add Tool

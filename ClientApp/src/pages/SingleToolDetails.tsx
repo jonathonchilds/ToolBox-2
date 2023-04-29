@@ -19,7 +19,7 @@ async function loadOneTool(id?: string) {
 
 const NullTool: ToolType = {
   name: "",
-  imageUrl: "",
+  photoURL: "",
   rent: false,
   rentPrice: 0 || null,
   borrow: false,
@@ -34,7 +34,7 @@ export default function Tool() {
   );
   return (
     <div className="flex flex-wrap justify-center p-14 md:flex md:flex-row">
-      <img src={`${tool.imageUrl}`} alt="Tool image" className="rounded" />
+      <img src={`${tool.photoURL}`} alt="Tool image" className="rounded" />
       <div className="p-4 ">
         <h2 className="mb-2 text-2xl ">{tool.name}</h2>
         <p className="leading-relaxed text-gray-700">
