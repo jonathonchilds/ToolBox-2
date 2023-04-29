@@ -8,7 +8,7 @@ import { authHeader } from "../auth";
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
     name: "",
-    imageUrl: "",
+    photoURL: "",
     rent: false,
     rentPrice: 0,
     borrow: false,

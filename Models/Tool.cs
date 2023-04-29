@@ -8,7 +8,7 @@ namespace ToolBox.Models
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string PhotoURL { get; set; }
 
         public bool Rent { get; set; }
 

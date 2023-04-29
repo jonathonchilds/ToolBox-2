@@ -12,7 +12,7 @@ function ToolTile({ tool }: { tool: ToolType }) {
           <Link to={`/${tool.id}`}>
             <img
               className="h-full w-full object-cover hover:cursor-pointer"
-              src={tool.imageUrl}
+              src={tool.photoURL}
               alt={tool.name}
               width="271"
               height="257"

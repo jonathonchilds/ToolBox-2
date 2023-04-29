@@ -7,7 +7,7 @@ export interface CSSStarsProps extends CSSProperties {
 export type ToolType = {
   id?: number;
   name: string;
-  imageUrl: string;
+  photoURL: string;
   rent: boolean;
   rentPrice: number | null;
   borrow: boolean;
@@ -42,3 +42,5 @@ export type LoginSuccess = {
   token: string;
   user: UserType;
 };
+
+export type UploadResponse = { url: string };
