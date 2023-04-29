@@ -70,9 +70,9 @@ export default function SignIn() {
             </p>
           </div>
           <p className="mb-4 flex flex-col">
-            <label className="mb-1 px-1">Email</label>
+            <label className="mb-1 ml-3 px-1">Email</label>
             <input
-              className="rounded p-2 px-4"
+              className="rounded-full p-2 px-4"
               type="text"
               placeholder="Username"
               name="email"
@@ -81,9 +81,9 @@ export default function SignIn() {
             />
           </p>
           <p className="flex flex-col ">
-            <label className="mb-1 px-1">Password</label>
+            <label className="mb-1 ml-3 px-1">Password</label>
             <input
-              className="rounded p-2 px-4 "
+              className="rounded-full p-2 px-4 "
               type="password"
               placeholder="Password"
               name="password"

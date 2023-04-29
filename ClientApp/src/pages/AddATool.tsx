@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import { APIError, ToolType, UploadResponse } from "../types";
 import { authHeader } from "../auth";
+import { button } from "../styling/tailwindClasses";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
@@ -73,12 +74,10 @@ export default function AddATool() {
     },
   });
 
-  let dropZoneMessage = "Drag a picture of the tool here to upload!";
-
+  let dropZoneMessage = "Drag & drop a picture of the tool, here!";
   if (isUploading) {
     dropZoneMessage = "Uploading...";
   }
-
   if (isDragActive) {
     dropZoneMessage = "Drop the files here ...";
   }
@@ -148,7 +147,7 @@ export default function AddATool() {
             <input
               autoFocus
               name="name"
-              className="my-2 rounded px-3 py-2"
+              className="my-2 rounded-full px-3 py-2"
               type="text"
               onChange={_stringFieldChange}
               placeholder="Tool Name"
@@ -202,7 +201,7 @@ export default function AddATool() {
             <p className="mb-4 flex flex-col">
               <input
                 name="rentPrice"
-                className="my-1 rounded px-3  py-2"
+                className="my-1 rounded-full px-3  py-2"
                 type="text"
                 onChange={handlePriceFieldChange}
                 placeholder="Rental price per day (e.g. 19.99)"
@@ -241,15 +240,13 @@ export default function AddATool() {
               />
             </p>
           </div>
-          <div className="mb-8 bg-gray-500 p-4 text-white">
+          <div className="border-10 mb-8 flex cursor-pointer rounded border border-gray-500 p-4 text-gray-500">
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {dropZoneMessage}
             </div>
           </div>
-          <button className="mt-2 w-full rounded-full bg-gray-500 py-3 text-white hover:bg-primary-500">
-            Add Tool
-          </button>
+          <button className={button}>Add Tool</button>
         </form>
       </div>
     </div>

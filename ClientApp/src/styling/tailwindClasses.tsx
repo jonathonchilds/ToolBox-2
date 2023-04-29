@@ -4,6 +4,6 @@ export const form =
   "mx-auto w-full max-w-[400px] rounded bg-slate-100 p-8 text-gray-950 shadow-xl";
 export const formContainer = "flex items-center justify-center p-10";
 export const button =
-  "mt-8 w-full rounded-lg bg-gray-500 py-3 text-white hover:bg-primary-500";
-export const input = "h-8 rounded px-3";
+  "mt-8 w-full rounded-full bg-primary-500 py-3 text-white hover:bg-primary-300 ease-in duration-500";
+export const input = "h-8 rounded-full px-3";
 export const inputContainer = "mb-4 flex flex-col";

@@ -63,6 +63,7 @@ export default function SignIn() {
   const _confirmPasswordClick = () => {
     setConfirmPasswordEye(!confirmPasswordEye);
   };
+
   function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewUser({ ...newUser, [event.target.name]: event.target.value });
   }
@@ -92,7 +93,7 @@ export default function SignIn() {
             </p>
           </section>
           <span className={inputContainer}>
-            <label className="mb-1 px-1">First Name</label>
+            <label className="mb-1 ml-2 px-1">First Name</label>
             <input
               autoFocus
               className={input}
@@ -108,7 +109,7 @@ export default function SignIn() {
             ) : null}
           </span>
           <span className={inputContainer}>
-            <label className="mb-1 px-1">Last Name</label>
+            <label className="mb-1 ml-2 px-1">Last Name</label>
             <input
               className={input}
               placeholder="Last Name"
@@ -123,9 +124,9 @@ export default function SignIn() {
             ) : null}
           </span>
           <span className={inputContainer}>
-            <label className="mb-1 px-1">Email</label>
+            <label className="mb-1 ml-2 px-1">Email</label>
             <input
-              className="h-8 rounded px-3"
+              className={input}
               placeholder="Email"
               name="email"
               type="text"
@@ -137,8 +138,8 @@ export default function SignIn() {
               </p>
             ) : null}
           </span>
-          <span className={inputContainer}>
-            <label className="mb-1 px-1">Zip Code</label>
+          <div className={inputContainer}>
+            <label className="mb-1 ml-2 px-1">Zip Code</label>
             <input
               className={input}
               placeholder="Zip Code"
@@ -151,10 +152,10 @@ export default function SignIn() {
                 {errorMessage[1]}
               </p>
             ) : null}
-          </span>
+          </div>
 
           <span className={`${inputContainer} pt-2`}>
-            <label className="mb-1 px-1">Create a Username</label>
+            <label className="mb-1 ml-2 px-1">Create a Username</label>
             <input
               className={input}
               placeholder="Create a Username"
@@ -168,39 +169,39 @@ export default function SignIn() {
               </p>
             ) : null}
           </span>
-          <fieldset>
-            <span className={`${inputContainer} pt-2`}>
-              <legend className="mb-1 px-1">Create a Password</legend>
+          <div>
+            <div className="relative flex flex-col">
+              <label className="mb-1 ml-2 px-1">Create a Password</label>
               <input
                 className={input}
                 type={passwordEye === false ? "password" : "text"}
                 placeholder="Password"
               />
-              <p className="absolute right-3 top-10 flex cursor-pointer text-2xl">
+              <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
                 {passwordEye === false ? (
                   <AiFillEyeInvisible onClick={_passwordClick} />
                 ) : (
                   <AiFillEye onClick={_passwordClick} />
                 )}
-              </p>
-            </span>
-            <span className="relative flex flex-col ">
-              <label className="mb-1 px-1">Confirm Password</label>
+              </div>
+            </div>
+            <div className="relative flex flex-col ">
+              <label className="mb-1 ml-2 px-1">Confirm Password</label>
               <input
                 className={input}
                 type={confirmPasswordEye === false ? "password" : "text"}
                 placeholder="Confirm Password"
               />
 
-              <p className="absolute right-3 top-8 flex cursor-pointer text-2xl">
+              <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
                 {confirmPasswordEye === false ? (
                   <AiFillEyeInvisible onClick={_confirmPasswordClick} />
                 ) : (
                   <AiFillEye onClick={_confirmPasswordClick} />
                 )}
-              </p>
-            </span>
-          </fieldset>
+              </div>
+            </div>
+          </div>
           <button className={button}>Sign Up</button>
           <p className="mt-8 text-center">
             Already a member?{" "}

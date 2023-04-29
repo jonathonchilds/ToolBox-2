@@ -1,6 +1,7 @@
 import React from "react";
 import backgroundImg from "../images/pointy-glove-guy.jpg";
 import logo from "../images/logo.png";
+import { button } from "../styling/tailwindClasses";
 
 export default function About() {
   return (
@@ -25,12 +26,12 @@ export default function About() {
             <br />
             <p>Enjoy!</p>
           </p>
-          <button className="my-4 mt-8 w-full animate-bounce rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className={`${button} animate-bounce `}>
             <a href="mailto:jonathon.k.childs@gmail.com">
-              Hire Jonathon! (e-mail)
+              Hire Jonathon! (prompts email)
             </a>
           </button>
-          <button className="my-2 w-full rounded bg-gray-500 py-3 text-white hover:bg-primary-500">
+          <button className={button}>
             <a href="https://www.linkedin.com/in/jonathon-childs-97b43651/">
               Jonathon&apos;s LinkedIn
             </a>
