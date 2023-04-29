@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 
-import backgroundImg from "../images/pointy-glove-guy.jpg";
-import logo from "../images/logo.png";
 import { APIError, ToolType } from "../types";
 import { authHeader } from "../auth";
 
