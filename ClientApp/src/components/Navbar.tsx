@@ -107,12 +107,36 @@ function Navbar() {
             </div>
           </div>
           <div className="ml-[30%] mr-2 flex flex-col gap-10 text-2xl">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/add-a-tool">Add A Tool</Link>
-            <Link to="/sign-in">Sign In</Link>
-            <Link to="/sign-up">Sign Up</Link>
-            <Link to="/checkout">Checkout</Link>
+            <Link to="/" onClick={() => setIsMenuToggled(!isMenuToggled)}>
+              Home
+            </Link>
+            <Link to="/about" onClick={() => setIsMenuToggled(!isMenuToggled)}>
+              About
+            </Link>
+            <Link
+              to="/add-a-tool"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              Add A Tool
+            </Link>
+            <Link
+              to="/sign-in"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/sign-up"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              Sign Up
+            </Link>
+            <Link
+              to="/checkout"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              Checkout
+            </Link>
           </div>
         </div>
       )}

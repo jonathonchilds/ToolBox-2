@@ -91,7 +91,7 @@ export default function SignIn() {
               <FcGoogle />
             </p>
           </section>
-          <p className={inputContainer}>
+          <span className={inputContainer}>
             <label className="mb-1 px-1">First Name</label>
             <input
               autoFocus
@@ -102,12 +102,12 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
             {errorMessage ? (
-              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
                 {errorMessage[4]}
-              </div>
+              </p>
             ) : null}
-          </p>
-          <p className={inputContainer}>
+          </span>
+          <span className={inputContainer}>
             <label className="mb-1 px-1">Last Name</label>
             <input
               className={input}
@@ -117,12 +117,12 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
             {errorMessage ? (
-              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
                 {errorMessage[2]}
-              </div>
+              </p>
             ) : null}
-          </p>
-          <p className={inputContainer}>
+          </span>
+          <span className={inputContainer}>
             <label className="mb-1 px-1">Email</label>
             <input
               className="h-8 rounded px-3"
@@ -132,12 +132,12 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
             {errorMessage ? (
-              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
                 {errorMessage[0]}
-              </div>
+              </p>
             ) : null}
-          </p>
-          <p className={inputContainer}>
+          </span>
+          <span className={inputContainer}>
             <label className="mb-1 px-1">Zip Code</label>
             <input
               className={input}
@@ -147,13 +147,13 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
             {errorMessage ? (
-              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
                 {errorMessage[1]}
-              </div>
+              </p>
             ) : null}
-          </p>
+          </span>
 
-          <p className={`${inputContainer} pt-2`}>
+          <span className={`${inputContainer} pt-2`}>
             <label className="mb-1 px-1">Create a Username</label>
             <input
               className={input}
@@ -163,28 +163,28 @@ export default function SignIn() {
               onChange={_stringFieldChange}
             />
             {errorMessage ? (
-              <div className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
+              <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
                 {errorMessage[3]}
-              </div>
+              </p>
             ) : null}
-          </p>
+          </span>
           <fieldset>
-            <p className={`${inputContainer} pt-2`}>
+            <span className={`${inputContainer} pt-2`}>
               <legend className="mb-1 px-1">Create a Password</legend>
               <input
                 className={input}
                 type={passwordEye === false ? "password" : "text"}
                 placeholder="Password"
               />
-              <div className="absolute right-3 top-10 flex cursor-pointer text-2xl">
+              <p className="absolute right-3 top-10 flex cursor-pointer text-2xl">
                 {passwordEye === false ? (
                   <AiFillEyeInvisible onClick={_passwordClick} />
                 ) : (
                   <AiFillEye onClick={_passwordClick} />
                 )}
-              </div>
-            </p>
-            <p className="relative flex flex-col ">
+              </p>
+            </span>
+            <span className="relative flex flex-col ">
               <label className="mb-1 px-1">Confirm Password</label>
               <input
                 className={input}
@@ -192,14 +192,14 @@ export default function SignIn() {
                 placeholder="Confirm Password"
               />
 
-              <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
+              <p className="absolute right-3 top-8 flex cursor-pointer text-2xl">
                 {confirmPasswordEye === false ? (
                   <AiFillEyeInvisible onClick={_confirmPasswordClick} />
                 ) : (
                   <AiFillEye onClick={_confirmPasswordClick} />
                 )}
-              </div>
-            </p>
+              </p>
+            </span>
           </fieldset>
           <button className={button}>Sign Up</button>
           <p className="mt-8 text-center">
