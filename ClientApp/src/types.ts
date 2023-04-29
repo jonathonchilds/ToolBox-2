@@ -40,10 +40,5 @@ export type LoginUserType = {
 
 export type LoginSuccess = {
   token: string;
-  user: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
+  user: UserType;
 };

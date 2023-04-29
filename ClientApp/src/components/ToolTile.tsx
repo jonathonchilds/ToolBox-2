@@ -29,31 +29,37 @@ function ToolTile({ tool }: { tool: ToolType }) {
                 </p>
               </Link>
             </h2>
-            <div className="flex items-center justify-between md:p-4 "></div>
-            {tool.borrow === true ? (
-              <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
-            ) : (
-              ""
-            )}
+            <section>
+              <div className="flex items-center justify-between md:p-4 "></div>
+              {tool.borrow === true ? (
+                <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
+              ) : (
+                ""
+              )}
 
-            <div className="max-w-fit px-2">
-              {tool.rent === true ? (
-                <Button label={`Rent`} color="blue-500" hoverColor="blue-700" />
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="my-0 max-w-fit px-2 ">
-              {tool.purchase === true ? (
-                <Button
-                  label={`Purchase`}
-                  color="blue-500"
-                  hoverColor="blue-700"
-                />
-              ) : (
-                ""
-              )}
-            </div>
+              <div className="max-w-fit px-2">
+                {tool.rent === true ? (
+                  <Button
+                    label={`Rent`}
+                    color="blue-500"
+                    hoverColor="blue-700"
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="my-0 max-w-fit px-2 ">
+                {tool.purchase === true ? (
+                  <Button
+                    label={`Purchase`}
+                    color="blue-500"
+                    hoverColor="blue-700"
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
+            </section>
           </div>
         </div>
       </div>

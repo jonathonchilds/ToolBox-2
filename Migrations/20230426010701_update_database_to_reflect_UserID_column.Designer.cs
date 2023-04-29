@@ -10,8 +10,8 @@ using ToolBox.Models;
 namespace ToolBox.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230422210908_ChangesPositionOfPasswordFieldAgainAgain")]
-    partial class ChangesPositionOfPasswordFieldAgainAgain
+    [Migration("20230426010701_update_database_to_reflect_UserID_column")]
+    partial class update_database_to_reflect_UserID_column
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,12 @@ namespace ToolBox.Migrations
                     b.Property<int?>("RentPrice")
                         .HasColumnType("integer");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tools");
                 });
@@ -88,7 +93,21 @@ namespace ToolBox.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ToolBox.Models.Tool", b =>
+                {
+                    b.HasOne("ToolBox.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ToolBox.Models;
@@ -18,7 +20,7 @@ namespace ToolBox.Controllers
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
-        // Constructor that recives a reference to your database context
+        // Constructor that receives a reference to your database context
         // and stores it in _context for you to use in your API methods
         public ToolsController(DatabaseContext context)
         {
@@ -128,10 +130,14 @@ namespace ToolBox.Controllers
         // supplies to the names of the attributes of our Tool POCO class. This represents the
         // new values for the record.
         //
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
         [HttpPost]
         public async Task<ActionResult<Tool>> PostTool(Tool tool)
         {
-            // Indicate to the database context we want to add this new record
+            //tool.UserId = GetCurrentUserId();
+
             _context.Tools.Add(tool);
             await _context.SaveChangesAsync();
 
@@ -172,5 +178,13 @@ namespace ToolBox.Controllers
         {
             return _context.Tools.Any(tool => tool.Id == id);
         }
+
+        // Private helper method to get the JWT claim related to the user ID
+        private int GetCurrentUserId()
+        {
+            // Get the User Id from the claim and then parse it as an integer.
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
+        }
+
     }
 }

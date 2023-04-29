@@ -10,8 +10,8 @@ import {
   formContainer,
   button,
 } from "../styling/tailwindClasses";
-import { APIError, LoginSuccess, LoginUserType } from "src/types";
-import { recordAuthentication } from "src/auth";
+import { APIError, LoginSuccess, LoginUserType } from "../types";
+import { recordAuthentication } from "../auth";
 
 export default function SignIn() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,7 +26,8 @@ export default function SignIn() {
   }
 
   async function loginUser(user: LoginUserType): Promise<LoginSuccess> {
-    const response = await fetch("/api/Sessions", {
+    console.log(user);
+    const response = await fetch("/api/Session", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(user),

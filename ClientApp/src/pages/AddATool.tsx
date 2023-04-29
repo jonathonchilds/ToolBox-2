@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import backgroundImg from "../images/pointy-glove-guy.jpg";
 import logo from "../images/logo.png";
 import { APIError, ToolType } from "../types";
+import { authHeader } from "../auth";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
@@ -26,7 +27,10 @@ export default function AddATool() {
   async function submitNewTool(tool: ToolType) {
     const response = await fetch("/api/Tools", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        Authorization: authHeader(),
+      },
       body: JSON.stringify(tool),
     });
     if (response.ok) {

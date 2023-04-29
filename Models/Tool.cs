@@ -4,23 +4,25 @@ namespace ToolBox.Models
 {
     public class Tool
     {
-        public int Id { get; set; } = 0;
-
+        public int Id { get; set; }
         [Required(ErrorMessage = "Name is required.")]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
 
-        public string ImageUrl { get; set; } = "";
+        public string ImageUrl { get; set; }
 
-        public bool Rent { get; set; } = false;
+        public bool Rent { get; set; }
 
-        public int? RentPrice { get; set; } = null;
+        public int? RentPrice { get; set; }
 
-        public bool Borrow { get; set; } = false;
+        public bool Borrow { get; set; }
 
-        public bool Purchase { get; set; } = false;
+        public bool Purchase { get; set; }
 
-        public int? PurchasePrice { get; set; } = null;
+        public int? PurchasePrice { get; set; }
+
+        public int UserId { get; set; }
+
+        public User User { get; set; }
+
     }
-
-
 }

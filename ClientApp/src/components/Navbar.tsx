@@ -5,11 +5,19 @@ import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 import useMediaQuery from "../hooks/useMediaQuery";
 import SearchFunction from "./SearchFunction";
+import { getUser, isLoggedIn, logout } from "../auth";
 
 function Navbar() {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const [isMenuToggled, setIsMenuToggled] = React.useState(false);
+
+  function handleLogout() {
+    logout();
+    window.location.assign("/");
+  }
+
+  const user = getUser();
 
   return (
     <nav>
@@ -33,10 +41,25 @@ function Navbar() {
                   <Link to="/about">About</Link>
                   <Link to="/add-a-tool">Add A Tool</Link>
                   <Link to="/checkout">Checkout</Link>
+                  {isLoggedIn() ? (
+                    <p> Welcome back, {user.firstName}!</p>
+                  ) : null}
                 </div>
                 <div className={`${flexBetween} gap-8`}>
-                  <Link to="/sign-in">Sign In</Link>
-                  <Link to="/sign-up">Sign Up</Link>
+                  {isLoggedIn() ? null : <Link to="/sign-in">Sign In</Link>}
+                  {isLoggedIn() ? null : <Link to="/sign-up">Sign Up</Link>}
+                  {isLoggedIn() ? (
+                    <a
+                      href="/"
+                      onClick={function (event) {
+                        event.preventDefault();
+                        handleLogout();
+                      }}
+                    >
+                      {" "}
+                      Sign Out
+                    </a>
+                  ) : null}
                   <div>
                     <div
                       className={
