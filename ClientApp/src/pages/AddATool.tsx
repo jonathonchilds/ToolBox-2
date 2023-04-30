@@ -63,7 +63,7 @@ export default function AddATool() {
     onSuccess: function (apiResponse: UploadResponse) {
       const url = apiResponse.url;
 
-      submitNewTool({ ...newTool, photoURL: url });
+      setNewTool({ ...newTool, photoURL: url });
     },
 
     onError: function (apiError: APIError) {
@@ -240,6 +240,11 @@ export default function AddATool() {
               />
             </p>
           </div>
+          {newTool.photoURL && (
+            <p>
+              <img alt="Tool Photo" width={200} src={newTool.photoURL} />
+            </p>
+          )}
           <div className="border-10 mb-8 flex cursor-pointer rounded border border-gray-500 p-4 text-gray-500">
             <div {...getRootProps()}>
               <input {...getInputProps()} />

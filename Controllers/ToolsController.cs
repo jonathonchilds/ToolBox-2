@@ -136,7 +136,7 @@ namespace ToolBox.Controllers
         [HttpPost]
         public async Task<ActionResult<Tool>> PostTool(Tool tool)
         {
-            //tool.UserId = GetCurrentUserId();
+            tool.UserId = GetCurrentUserId();
 
             _context.Tools.Add(tool);
             await _context.SaveChangesAsync();

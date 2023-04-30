@@ -176,6 +176,8 @@ export default function SignIn() {
                 className={input}
                 type={passwordEye === false ? "password" : "text"}
                 placeholder="Password"
+                name="password"
+                onChange={_stringFieldChange}
               />
               <div className="absolute right-3 top-8 flex cursor-pointer text-2xl">
                 {passwordEye === false ? (
