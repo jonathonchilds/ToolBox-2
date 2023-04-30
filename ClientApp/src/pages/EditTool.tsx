@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import { APIError, ToolType, UploadResponse } from "../types";
 import { authHeader } from "../auth";
 import { button } from "../styling/tailwindClasses";
 
-export default function AddATool() {
-  const [newTool, setNewTool] = useState<ToolType>({
+export default function EditTool() {
+  const params = useParams();
+  const id = params.id;
+
+  const navigate = useNavigate();
+
+  const [isUploading, setIsUploading] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [tool, setTool] = useState<ToolType>({
     name: "",
     photoURL: "",
     rent: false,
@@ -18,64 +27,92 @@ export default function AddATool() {
     userId: 0,
   });
 
-  const [errorMessage, setErrorMessage] = useState<Record<string, string[]>>();
-  const [isUploading, setIsUploading] = useState(false);
-
-  function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewTool({ ...newTool, [event.target.name]: event.target.value });
-  }
-
-  function onDropFile(acceptedFiles: File[]) {
-    setIsUploading(true);
-    const fileToUpload = acceptedFiles[0];
-    uploadFileMutation.mutate(fileToUpload);
-  }
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: onDropFile,
   });
 
-  async function uploadFile(fileToUpload: File) {
-    // Create a formData object so we can send this
-    // to the API that is expecting some form data.
-    const formData = new FormData();
+  useEffect(() => {
+    async function fetchTool() {
+      const response = await fetch(`/api/Tools/${id}`);
+      if (response.ok) {
+        const apiData = await response.json();
+        setTool(apiData);
+      }
+    }
+    fetchTool();
+  }, [id]);
 
-    // Append a field that is the form upload itself
-    formData.append("file", fileToUpload);
+  function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setTool({ ...tool, [event.target.name]: event.target.value });
+  }
 
-    // Use fetch to send an authorization header and
-    // a body containing the form data with the file
-    const response = await fetch("/api/Uploads", {
-      method: "POST",
+  function _priceFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const priceInCents = Math.round(parseFloat(event.target.value) * 100);
+    setTool({
+      ...tool,
+      [event.target.name]: priceInCents,
+    });
+  }
+
+  function _radioClick(event: React.ChangeEvent<HTMLInputElement>) {
+    setTool({
+      ...tool,
+      [event.target.name]: event.target.value === "Yes" ? true : false,
+    });
+  }
+
+  async function _formSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const response = await fetch(`/api/Tools/${id}`, {
+      method: "PUT",
       headers: {
+        "content-type": "application/json",
         Authorization: authHeader(),
       },
-      body: formData,
+      body: JSON.stringify(tool),
     });
-
-    if (response.ok) {
-      return response.json();
+    if (response.status === 401) {
+      setErrorMessage("Not Authorized");
     } else {
-      throw "Unable to upload image!";
+      if (response.status === 400) {
+        const json = await response.json();
+        setErrorMessage(Object.values(json.errors).join(" "));
+      } else {
+        navigate("/");
+      }
     }
   }
 
-  const uploadFileMutation = useMutation(uploadFile, {
-    onSuccess: function (apiResponse: UploadResponse) {
-      const url = apiResponse.url;
-
-      setNewTool({ ...newTool, photoURL: url });
-    },
-
-    onError: function (apiError: APIError) {
-      console.log(Object.values(apiError.errors));
-    },
-    onSettled: function () {
+  async function onDropFile(acceptedFiles: File[]) {
+    setIsUploading(true);
+    const fileToUpload = acceptedFiles[0];
+    const formData = new FormData();
+    formData.append("file", fileToUpload);
+    try {
+      setIsUploading(true);
+      const response = await fetch("/api/Uploads", {
+        method: "POST",
+        headers: {
+          Authorization: authHeader(),
+        },
+        body: formData,
+      });
       setIsUploading(false);
-    },
-  });
+      if (response.status === 200) {
+        const apiResponse = await response.json();
+        const url = apiResponse.url;
+        setTool({ ...tool, photoURL: url });
+      } else {
+        setErrorMessage("Unable to upload image");
+      }
+    } catch (error) {
+      console.debug(error);
+      setErrorMessage("Unable to upload image");
+      setIsUploading(false);
+    }
+  }
 
-  let dropZoneMessage = "Drag & drop a picture of the tool, here!";
+  let dropZoneMessage = "Drag & drop a new picture of the tool, here!";
   if (isUploading) {
     dropZoneMessage = "Uploading...";
   }
@@ -83,52 +120,9 @@ export default function AddATool() {
     dropZoneMessage = "Drop the files here ...";
   }
 
-  async function submitNewTool(tool: ToolType) {
-    const response = await fetch("/api/Tools", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Authorization: authHeader(),
-      },
-      body: JSON.stringify(tool),
-    });
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw await response.json();
-    }
+  if (!tool.id) {
+    return <p>Tool not found!</p>;
   }
-
-  const navigate = useNavigate();
-  const createNewTool = useMutation(submitNewTool, {
-    onSuccess: function () {
-      navigate("/");
-    },
-    onError: function (apiError: APIError) {
-      console.log(Object.values(apiError.errors));
-    },
-  });
-
-  async function _formSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    createNewTool.mutate(newTool);
-  }
-
-  function handlePriceFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const priceInCents = Math.round(parseFloat(event.target.value) * 100);
-    setNewTool({
-      ...newTool,
-      [event.target.name]: priceInCents,
-    });
-  }
-
-  function handleRadioClick(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewTool({
-      ...newTool,
-      [event.target.name]: event.target.value === "Yes" ? true : false,
-    });
-  }
-
   return (
     <div className="h-full w-full">
       <div className="flex items-center justify-center p-10 ">
@@ -136,13 +130,13 @@ export default function AddATool() {
           onSubmit={_formSubmit}
           className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-10 shadow-xl"
         >
-          {/* {errorMessage.email[0] ? (
+          {errorMessage ? (
             <p className="flex justify-center border-2 border-solid border-red-700 bg-gray-50">
               {errorMessage}
             </p>
-          ) : null} */}
+          ) : null}
           <h1 className=" align-items-center flex justify-center pb-4 text-2xl">
-            Add a Tool
+            Edit Tool
           </h1>
           <p className="mb-4 flex flex-col pb-2">
             <input
@@ -163,7 +157,7 @@ export default function AddATool() {
                   type="radio"
                   name="borrow"
                   value="Yes"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
               <div>
@@ -172,7 +166,7 @@ export default function AddATool() {
                   type="radio"
                   name="borrow"
                   value="No"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
             </div>
@@ -186,7 +180,7 @@ export default function AddATool() {
                   type="radio"
                   name="rent"
                   value="Yes"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
               <div>
@@ -195,7 +189,7 @@ export default function AddATool() {
                   type="radio"
                   name="rent"
                   value="No"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
             </div>
@@ -204,7 +198,7 @@ export default function AddATool() {
                 name="rentPrice"
                 className="my-1 rounded-full px-3  py-2"
                 type="text"
-                onChange={handlePriceFieldChange}
+                onChange={_priceFieldChange}
                 placeholder="Rental price per day (e.g. 19.99)"
               />
             </p>
@@ -218,7 +212,7 @@ export default function AddATool() {
                   type="radio"
                   name="purchase"
                   value="Yes"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
               <div>
@@ -227,7 +221,7 @@ export default function AddATool() {
                   type="radio"
                   name="purchase"
                   value="No"
-                  onChange={handleRadioClick}
+                  onChange={_radioClick}
                 />
               </div>
             </div>
@@ -236,14 +230,14 @@ export default function AddATool() {
                 name="purchasePrice"
                 className="my-1 rounded-full px-3 py-2"
                 type="text"
-                onChange={handlePriceFieldChange}
+                onChange={_priceFieldChange}
                 placeholder="Purchase price (e.g. 19.99)"
               />
             </p>
           </div>
-          {newTool.photoURL && (
+          {tool.photoURL && (
             <p>
-              <img alt="Tool Photo" width={200} src={newTool.photoURL} />
+              <img alt="Tool Photo" width={200} src={tool.photoURL} />
             </p>
           )}
           <div className="border-10 mb-8 flex cursor-pointer rounded border border-gray-500 p-4 text-gray-500">

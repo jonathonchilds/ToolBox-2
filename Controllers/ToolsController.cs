@@ -123,17 +123,12 @@ namespace ToolBox.Controllers
 
         // POST: api/Tools
         //
-        // Creates a new tool in the database.
-        //
-        // The `body` of the request is parsed and then made available to us as a Tool
-        // variable named tool. The controller matches the keys of the JSON object the client
+        // The controller matches the keys of the JSON object the client
         // supplies to the names of the attributes of our Tool POCO class. This represents the
         // new values for the record.
         //
-
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Tool>> PostTool(Tool tool)
         {
             tool.UserId = GetCurrentUserId();
@@ -147,37 +142,36 @@ namespace ToolBox.Controllers
         }
 
         // DELETE: api/Tools/5
-        //
-        // Deletes an individual tool with the requested id. The id is specified in the URL
-        // In the sample URL above it is the `5`. The "{id} in the [HttpDelete("{id}")] is what tells dotnet
-        // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
-        //
+
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteTool(int id)
         {
-            // Find this tool by looking for the specific id
             var tool = await _context.Tools.FindAsync(id);
             if (tool == null)
             {
-                // There wasn't a tool with that id so return a `404` not found
                 return NotFound();
             }
-
-            // Tell the database we want to remove this record
+            if (tool.UserId != GetCurrentUserId())
+            {
+                var response = new
+                {
+                    status = 401,
+                    errors = new List<string>() { "You can only delete tools that you've created from this account." }
+                };
+                return Unauthorized(response);
+            }
             _context.Tools.Remove(tool);
-
-            // Tell the database to perform the deletion
             await _context.SaveChangesAsync();
-
-            // Return a copy of the deleted data
             return Ok(tool);
         }
 
-        // Private helper method that looks up an existing tool by the supplied id
+
         private bool ToolExists(int id)
         {
             return _context.Tools.Any(tool => tool.Id == id);
         }
+
 
         // Private helper method to get the JWT claim related to the user ID
         private int GetCurrentUserId()

@@ -13,6 +13,7 @@ import SingleToolDetails from "./pages/SingleToolDetails";
 import CheckoutPage from "./pages/Checkout";
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
+import EditTool from "./pages/EditTool";
 
 type Product = {
   id: string;
@@ -40,6 +41,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/:id" element={<SingleToolDetails />} />
+        <Route path="/tools/:id/edit" element={<EditTool />} />
         <Route
           path="/checkout"
           element={<CheckoutPage products={products} />}

@@ -13,6 +13,7 @@ export type ToolType = {
   borrow: boolean;
   purchase: boolean;
   purchasePrice: number | null;
+  userId: number | null;
 };
 
 export type APIError = {
