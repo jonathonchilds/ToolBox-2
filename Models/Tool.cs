@@ -5,7 +5,7 @@ namespace ToolBox.Models
     public class Tool
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name is required.")]
+        [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
 
         public string PhotoURL { get; set; }
