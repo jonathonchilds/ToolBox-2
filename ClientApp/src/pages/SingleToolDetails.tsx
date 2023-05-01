@@ -58,16 +58,35 @@ export default function Tool() {
         <h2 className=" text-2xl ">{tool.name}</h2>
 
         {isLoggedIn() && tool.userId === getUserId() ? (
-          <div className="mb-4 flex justify-between">
+          <div className="my-4 flex align-middle">
             <Link to={`/tools/${id}/edit`}>
-              <Button label="Edit" color="blue-500" hoverColor="blue-700" />
+              <button className="duration-50 mr-2 w-[8rem] rounded-full bg-primary-500 px-4 py-3 text-white ease-in hover:bg-primary-300">
+                Edit
+              </button>
             </Link>
-            <Button label="Delete" color="blue-500" hoverColor="blue-700" />
+            <button
+              className="duration-50 w-[8rem] rounded-full bg-primary-500 px-4 py-3 text-white ease-in hover:bg-primary-300"
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
           </div>
         ) : null}
 
         <p className="mb-4 leading-relaxed text-gray-700">
-          Tool description goes here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+          dictum nec ante porttitor elementum. Sed erat est, pharetra id neque
+          et, ultricies varius turpis. Vivamus vulputate arcu ut nibh facilisis
+          consectetur. Suspendisse potenti. Vestibulum eget metus sed lectus
+          dignissim convallis eget vitae nulla. Fusce congue tortor orci. Proin
+          lobortis mollis elit et dapibus. Quisque vestibulum est sed augue
+          sagittis, eu efficitur sapien convallis. Maecenas eleifend leo mollis
+          consequat tempor. Phasellus et leo pellentesque, eleifend magna eu,
+          finibus enim. Phasellus semper, nisi et faucibus mollis, velit lorem
+          commodo tellus, ac vestibulum sem eros sit amet dolor. In nec lorem
+          quis odio gravida ullamcorper vel nec enim. Etiam non vestibulum dui.
+          Nulla id ligula sit amet ligula convallis convallis. Maecenas mattis
+          enim eget lectus efficitur volutpat.
         </p>
         <div>
           {tool.borrow === true ? (

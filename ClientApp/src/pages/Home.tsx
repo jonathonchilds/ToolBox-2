@@ -19,8 +19,6 @@ export function Home() {
     }
   );
 
-  //why are we using useQuery?
-
   return (
     <div className="flex flex-wrap p-4">
       {tools.map((tool) => (

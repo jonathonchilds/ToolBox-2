@@ -7,7 +7,7 @@ import { Button } from "./Buttons";
 function ToolTile({ tool }: { tool: ToolType }) {
   return (
     <div className="w-full flex-wrap p-4 md:w-1/5">
-      <div className="h-80 w-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl sm:h-64 sm:w-64">
+      <div className="w-84 h-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl sm:h-64 sm:w-64 ">
         <div className="h-3/4">
           <Link to={`/${tool.id}`}>
             <img
@@ -20,16 +20,13 @@ function ToolTile({ tool }: { tool: ToolType }) {
           </Link>
         </div>
 
-        <div className="h-full w-full bg-slate-100">
-          <div className="flex h-1/4 items-center justify-between md:p-4 ">
-            <h2>
-              <Link to={`/${tool.id}`}>
-                <p className=" text-gray-950 hover:cursor-pointer">
-                  {tool.name}
-                </p>
-              </Link>
-            </h2>
-            <section>
+        <div className="flex h-full w-full justify-center bg-slate-100 ">
+          <h2 className="flex justify-center pt-4">
+            <Link to={`/${tool.id}`}>
+              <p className=" text-gray-950 hover:cursor-pointer">{tool.name}</p>
+            </Link>
+          </h2>
+          {/* <section>
               <div className="flex items-center justify-between md:p-4 "></div>
               {tool.borrow === true ? (
                 <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
@@ -59,8 +56,7 @@ function ToolTile({ tool }: { tool: ToolType }) {
                   ""
                 )}
               </div>
-            </section>
-          </div>
+            </section> */}
         </div>
       </div>
     </div>
