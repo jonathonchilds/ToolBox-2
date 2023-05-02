@@ -39,6 +39,8 @@ namespace ToolBox.Controllers
 
             if (foundUser != null && foundUser.IsValidPassword(loginUser.Password))
             {
+                HttpContext.Session.SetInt32("UserId", foundUser.Id);
+
                 var response = new
                 {
                     token = new TokenGenerator(JWT_KEY).TokenFor(foundUser),
