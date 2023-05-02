@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -21,6 +21,8 @@ const NullTool: ToolType = {
 };
 
 export default function Tool() {
+  const [errorMessage, setErrorMessage] = useState("");
+
   async function loadOneTool(id?: string) {
     const response = await fetch(`api/tools/${id}`);
 
@@ -48,6 +50,17 @@ export default function Tool() {
 
     if (response.status === 200 || response.status === 204) {
       navigate("/");
+    } else {
+      if (response.status === 401) {
+        setErrorMessage(
+          "It seems you've been logged out. Please login again to edit/delete this tool."
+        );
+      } else {
+        if (response.status === 400) {
+          const json = await response.json();
+          setErrorMessage(Object.values(json.errors).join(" "));
+        }
+      }
     }
   }
 
@@ -64,13 +77,20 @@ export default function Tool() {
                 Edit
               </button>
             </Link>
-            <button
-              className="duration-50 w-[8rem] rounded-full bg-primary-500 px-4 py-3 text-white ease-in hover:bg-primary-300"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
+            <div>
+              <button
+                className="duration-50 w-[8rem] rounded-full bg-primary-500 px-4 py-3 text-white ease-in hover:bg-primary-300"
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+            </div>
           </div>
+        ) : null}
+        {errorMessage ? (
+          <p className="my-6 flex justify-center border-2 border-solid border-red-700 bg-gray-50 py-4 text-center">
+            {errorMessage}
+          </p>
         ) : null}
 
         <p className="mb-4 leading-relaxed text-gray-700">

@@ -23,7 +23,9 @@ function ToolTile({ tool }: { tool: ToolType }) {
         <div className="flex h-full w-full justify-center bg-slate-100 ">
           <h2 className="flex justify-center pt-4">
             <Link to={`/${tool.id}`}>
-              <p className=" text-gray-950 hover:cursor-pointer">{tool.name}</p>
+              <p className=" text-center text-gray-950 hover:cursor-pointer">
+                {tool.name}
+              </p>
             </Link>
           </h2>
           {/* <section>
