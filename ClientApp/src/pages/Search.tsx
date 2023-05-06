@@ -19,7 +19,7 @@ function Search() {
   });
 
   return (
-    <div className="flex flex-wrap ">
+    <div className="flex flex-wrap  p-4">
       {tools.map((tool) => (
         <ToolTile key={tool.id} tool={tool} />
       ))}

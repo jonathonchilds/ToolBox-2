@@ -20,7 +20,7 @@ export function Home() {
   );
 
   return (
-    <div className="flex flex-wrap p-4">
+    <div className="flex flex-wrap justify-center bg-white p-4 md:justify-between">
       {tools.map((tool) => (
         <ToolTile key={tool.id} tool={tool} />
       ))}

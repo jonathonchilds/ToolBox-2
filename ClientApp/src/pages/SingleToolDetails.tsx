@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { APIError, ToolType } from "../types";
 import { formatPrice } from "../utilities/FormatPrice";
 import { authHeader, getUserId, isLoggedIn } from "../auth";
-import { Button } from "../components/Buttons";
 import { button } from "../styling/tailwindClasses";
 
 const NullTool: ToolType = {
@@ -108,31 +107,19 @@ export default function Tool() {
           Nulla id ligula sit amet ligula convallis convallis. Maecenas mattis
           enim eget lectus efficitur volutpat.
         </p>
-        <div>
+        <div className="flex w-[250px] justify-evenly">
           {tool.borrow === true ? (
-            <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
+            <button className={button}> Borrow </button>
           ) : (
             ""
           )}
-        </div>
-        <div>
           {tool.rent && tool.rentPrice ? (
-            <Button
-              label={`${formatPrice(tool.rentPrice)} rental`}
-              color="blue-500"
-              hoverColor="blue-700"
-            />
+            <button className={button}> Rent </button>
           ) : (
             ""
           )}
-        </div>
-        <div>
           {tool.purchase && tool.purchasePrice ? (
-            <Button
-              label={`${formatPrice(tool.purchasePrice)} purchase`}
-              color="blue-500"
-              hoverColor="blue-700"
-            />
+            <button className={button}> Purchase </button>
           ) : (
             ""
           )}

@@ -2,33 +2,55 @@ import React from "react";
 import { ToolType } from "../types";
 import { formatPrice } from "../utilities/FormatPrice";
 import { Link } from "react-router-dom";
-import { Button } from "./Buttons";
+import { button } from "../styling/tailwindClasses";
 
 function ToolTile({ tool }: { tool: ToolType }) {
-  return (
-    <div className="w-full flex-wrap p-4 md:w-1/5">
-      <div className="w-84 h-80 flex-col overflow-hidden rounded shadow-md hover:shadow-xl sm:h-64 sm:w-64 ">
-        <div className="h-3/4">
-          <Link to={`/${tool.id}`}>
-            <img
-              className="h-full w-full object-cover hover:cursor-pointer"
-              src={tool.photoURL}
-              alt={tool.name}
-              width="271"
-              height="257"
-            />
-          </Link>
-        </div>
+  const tileButtons =
+    "rounded-lg bg-transparent px-2 py-1 text-black shadow-md";
 
-        <div className="flex h-full w-full justify-center bg-slate-100 ">
-          <h2 className="flex justify-center pt-4">
-            <Link to={`/${tool.id}`}>
-              <p className=" text-center text-gray-950 hover:cursor-pointer">
-                {tool.name}
-              </p>
-            </Link>
-          </h2>
-          {/* <section>
+  return (
+    <div className=" m-4 overflow-auto rounded-xl border shadow-sm md:w-[250px]">
+      <Link to={`/${tool.id}`}>
+        <img
+          className="pt-2 hover:cursor-pointer"
+          src={tool.photoURL}
+          alt={tool.name}
+          width="271"
+          height="257"
+        />
+      </Link>
+      <h2>
+        <Link to={`/${tool.id}`}>
+          <p className="p-4 pb-2 text-center text-lg text-gray-950 hover:cursor-pointer">
+            {tool.name}
+          </p>
+        </Link>
+      </h2>
+      <div className="flex justify-evenly p-4 pt-2">
+        {tool.borrow === true ? (
+          <button className={`${tileButtons} `}> Borrow </button>
+        ) : (
+          ""
+        )}
+        {tool.rent === true ? (
+          <button className={tileButtons}> Rent </button>
+        ) : (
+          ""
+        )}
+        {tool.purchase === true ? (
+          <button className={tileButtons}> Purchase </button>
+        ) : (
+          ""
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default ToolTile;
+
+{
+  /* <section>
               <div className="flex items-center justify-between md:p-4 "></div>
               {tool.borrow === true ? (
                 <Button label="Borrow" color="blue-500" hoverColor="blue-700" />
@@ -58,11 +80,5 @@ function ToolTile({ tool }: { tool: ToolType }) {
                   ""
                 )}
               </div>
-            </section> */}
-        </div>
-      </div>
-    </div>
-  );
+            </section> */
 }
-
-export default ToolTile;
