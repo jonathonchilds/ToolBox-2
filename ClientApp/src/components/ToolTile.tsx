@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import { button } from "../styling/tailwindClasses";
 
 function ToolTile({ tool }: { tool: ToolType }) {
-  const tileButtons =
-    "rounded-lg bg-transparent px-2 py-1 text-black shadow-md";
+  const tileButtons = "rounded-lg bg-transparent px-2 m-2 text-black shadow-md";
 
   return (
-    <div className="flex flex-wrap justify-center">
-      <div className=" h-[250px] w-[250px] overflow-hidden rounded-xl border shadow-md ">
+    <div className="flex flex-wrap justify-center rounded-2xl ">
+      <div className=" h-[250px] w-[250px] overflow-hidden rounded-xl shadow-lg ">
         <Link to={`/${tool.id}`}>
           <img
             className="h-full w-full object-cover hover:cursor-pointer"
@@ -22,12 +21,12 @@ function ToolTile({ tool }: { tool: ToolType }) {
       <div>
         <h2>
           <Link to={`/${tool.id}`}>
-            <p className="p-4 text-center text-lg text-gray-950 hover:cursor-pointer">
+            <p className="pb-2 pt-4 text-center text-lg text-gray-950 hover:cursor-pointer">
               {tool.name}
             </p>
           </Link>
         </h2>
-        <div className="flex justify-evenly p-4 pt-2">
+        <div className="flex justify-evenly ">
           {tool.borrow === true ? (
             <button className={`${tileButtons} `}> Borrow </button>
           ) : (
