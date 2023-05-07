@@ -8,7 +8,6 @@ import SearchFunction from "./SearchFunction";
 import { getUser, isLoggedIn, logout } from "../auth";
 
 function Navbar() {
-  const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const [isMenuToggled, setIsMenuToggled] = React.useState(false);
 
@@ -21,55 +20,49 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0">
-      <div
-        className={`w-full border-b border-primary-500 bg-secondary-400 py-8`}
-      >
-        <div className={`mx-14 w-5/6`}>
-          <div className={`${flexBetween} w-full gap-16`}>
-            <Link to="/">
-              {" "}
-              <img alt="logo" src={Logo} />{" "}
-            </Link>
-            {isAboveMediumScreens ? (
-              <div className={`${flexBetween} w-full`}>
-                <div className={`${flexBetween} gap-8`}>
-                  <Link to="/">Home</Link>
-                  <Link to="/about">About</Link>
-                  <Link to="/add-a-tool">Add A Tool</Link>
-                  <Link to="/checkout">Checkout</Link>
-                  {isLoggedIn() ? (
-                    <p> Welcome back, {user.firstName}!</p>
-                  ) : null}
-                </div>
-                <div className={`${flexBetween} gap-8`}>
-                  {isLoggedIn() ? null : <Link to="/sign-in">Sign In</Link>}
-                  {isLoggedIn() ? null : <Link to="/sign-up">Sign Up</Link>}
-                  {isLoggedIn() ? (
-                    <a
-                      href="/"
-                      onClick={function (event) {
-                        event.preventDefault();
-                        handleLogout();
-                      }}
-                    >
-                      {" "}
-                      Sign Out
-                    </a>
-                  ) : null}
-                  <div>
-                    <SearchFunction />
-                  </div>
+      <div className="border-b border-slate-600 bg-secondary-400 p-8">
+        <div className="flex items-center justify-between gap-14">
+          <Link to="/">
+            {" "}
+            <img alt="logo" src={Logo} />{" "}
+          </Link>
+          {isAboveMediumScreens ? (
+            <div className="flex w-full items-center justify-between">
+              <div className="flex items-center justify-between gap-8 text-gray-900">
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/add-a-tool">Add A Tool</Link>
+                <Link to="/checkout">Checkout</Link>
+                {isLoggedIn() ? <p> Welcome back, {user.firstName}!</p> : null}
+              </div>
+              <div className="mx-8 flex items-center gap-8">
+                {isLoggedIn() ? null : <Link to="/sign-in">Sign In</Link>}
+                {isLoggedIn() ? null : <Link to="/sign-up">Sign Up</Link>}
+                {isLoggedIn() ? (
+                  <a
+                    href="/"
+                    onClick={function (event) {
+                      event.preventDefault();
+                      handleLogout();
+                    }}
+                  >
+                    {" "}
+                    Sign Out
+                  </a>
+                ) : null}
+                <div>
+                  <SearchFunction />
                 </div>
               </div>
-            ) : (
-              <button
-                className="bg-se rounded-full bg-primary-500 p-2"
-                onClick={() => setIsMenuToggled(!isMenuToggled)}
-              >
-                <Bars3Icon className="h-6 w-6 text-white" />
-              </button>
-            )}
-          </div>
+            </div>
+          ) : (
+            <button
+              className="bg-se rounded-full bg-primary-500 p-2"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              <Bars3Icon className="h-6 w-6 text-white" />
+            </button>
+          )}
         </div>
       </div>
       {/* Mobile menu modal*/}
