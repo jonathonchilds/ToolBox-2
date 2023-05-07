@@ -21,12 +21,11 @@ function Navbar() {
 
   return (
     <nav>
-      {/* Overall navbar */}
       <div
-        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-6`}
+        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-8`}
       >
         {/* Components container of the navbar */}
-        <div className={`${flexBetween} mx-auto w-5/6`}>
+        <div className={`${flexBetween} mx-12 w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
             <Link to="/">
@@ -61,15 +60,7 @@ function Navbar() {
                     </a>
                   ) : null}
                   <div>
-                    <div
-                      className={
-                        isAboveMediumScreens
-                          ? `flex items-center justify-between gap-2`
-                          : `flex items-center justify-start gap-2 px-2 pb-8`
-                      }
-                    >
-                      <SearchFunction />
-                    </div>
+                    <SearchFunction />
                   </div>
                 </div>
               </div>

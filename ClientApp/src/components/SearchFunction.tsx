@@ -24,7 +24,7 @@ const SearchInput = () => {
         className={
           isAboveMediumScreens
             ? `flex items-center justify-between gap-2`
-            : `flex items-center justify-start gap-2 px-2 pb-8`
+            : `flex items-center justify-start gap-2 pb-8`
         }
       >
         <div>
