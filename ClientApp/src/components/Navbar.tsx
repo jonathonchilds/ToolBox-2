@@ -25,7 +25,7 @@ function Navbar() {
         className={`w-full border-b border-primary-500 bg-secondary-400 py-8`}
       >
         {/* Components container of the navbar */}
-        <div className={`${flexBetween} mx-12 w-5/6`}>
+        <div className={`mx-14 w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
             <Link to="/">
