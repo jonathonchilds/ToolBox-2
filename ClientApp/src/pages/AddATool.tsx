@@ -155,7 +155,16 @@ export default function AddATool() {
               placeholder="Tool Name"
             />
           </p>
-
+          <select data-te-select-init>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+            <option value="6">Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+          </select>
           <div className="mb-4 flex flex-col pb-6">
             <label>Can people borrow this tool (at no charge)?</label>
             <div className="flex w-full justify-around py-2">
