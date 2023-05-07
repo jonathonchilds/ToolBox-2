@@ -9,8 +9,8 @@ function ToolTile({ tool }: { tool: ToolType }) {
     "rounded-lg bg-transparent px-2 py-1 text-black shadow-md";
 
   return (
-    <div>
-      <div className=" h-[250px] w-[250px] justify-items-center overflow-hidden rounded-xl border shadow-sm ">
+    <div className="flex flex-wrap justify-center">
+      <div className=" h-[250px] w-[250px] overflow-hidden rounded-xl border shadow-md ">
         <Link to={`/${tool.id}`}>
           <img
             className="h-full w-full object-cover hover:cursor-pointer"
@@ -22,7 +22,7 @@ function ToolTile({ tool }: { tool: ToolType }) {
       <div>
         <h2>
           <Link to={`/${tool.id}`}>
-            <p className=" pb-2 text-center text-lg text-gray-950 hover:cursor-pointer">
+            <p className="p-4 text-center text-lg text-gray-950 hover:cursor-pointer">
               {tool.name}
             </p>
           </Link>
