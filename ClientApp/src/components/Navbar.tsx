@@ -28,11 +28,19 @@ function Navbar() {
           </Link>
           {isAboveMediumScreens ? (
             <div className="flex w-full items-center justify-between">
-              <div className="flex items-center justify-between gap-8 text-gray-900">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/add-a-tool">Add A Tool</Link>
-                <Link to="/checkout">Checkout</Link>
+              <div className="flex items-center justify-between gap-8 text-gray-900 ">
+                <Link to="/" className="hover:underline">
+                  Home
+                </Link>
+                <Link to="/about" className="hover:underline">
+                  About
+                </Link>
+                <Link to="/add-a-tool" className="hover:underline">
+                  Add A Tool
+                </Link>
+                <Link to="/checkout" className="hover:underline">
+                  Checkout
+                </Link>
                 {isLoggedIn() ? <p> Welcome back, {user.firstName}!</p> : null}
               </div>
               <div className="mx-8 flex items-center gap-8">
