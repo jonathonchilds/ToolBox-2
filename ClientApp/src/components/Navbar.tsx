@@ -20,9 +20,9 @@ function Navbar() {
   const user = getUser();
 
   return (
-    <nav>
+    <nav className="sticky top-0">
       <div
-        className={`${flexBetween} w-full border-b border-primary-500 bg-secondary-400 py-8`}
+        className={`w-full border-b border-primary-500 bg-secondary-400 py-8`}
       >
         {/* Components container of the navbar */}
         <div className={`${flexBetween} mx-12 w-5/6`}>
@@ -35,7 +35,7 @@ function Navbar() {
             {/* RIGHT SIDE */}
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
-                <div className={`${flexBetween} gap-8 text-base`}>
+                <div className={`${flexBetween} gap-8`}>
                   <Link to="/">Home</Link>
                   <Link to="/about">About</Link>
                   <Link to="/add-a-tool">Add A Tool</Link>
