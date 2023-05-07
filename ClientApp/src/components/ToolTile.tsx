@@ -9,39 +9,41 @@ function ToolTile({ tool }: { tool: ToolType }) {
     "rounded-lg bg-transparent px-2 py-1 text-black shadow-md";
 
   return (
-    <div className=" m-4 overflow-auto rounded-xl border shadow-sm md:w-[250px]">
-      <Link to={`/${tool.id}`}>
-        <img
-          className="pt-2 hover:cursor-pointer"
-          src={tool.photoURL}
-          alt={tool.name}
-          width="271"
-          height="257"
-        />
-      </Link>
-      <h2>
+    <div>
+      <div className=" h-[250px] w-[250px] justify-items-center overflow-hidden rounded-xl border shadow-sm ">
         <Link to={`/${tool.id}`}>
-          <p className="p-4 pb-2 text-center text-lg text-gray-950 hover:cursor-pointer">
-            {tool.name}
-          </p>
+          <img
+            className="h-full w-full object-cover hover:cursor-pointer"
+            src={tool.photoURL}
+            alt={tool.name}
+          />
         </Link>
-      </h2>
-      <div className="flex justify-evenly p-4 pt-2">
-        {tool.borrow === true ? (
-          <button className={`${tileButtons} `}> Borrow </button>
-        ) : (
-          ""
-        )}
-        {tool.rent === true ? (
-          <button className={tileButtons}> Rent </button>
-        ) : (
-          ""
-        )}
-        {tool.purchase === true ? (
-          <button className={tileButtons}> Purchase </button>
-        ) : (
-          ""
-        )}
+      </div>
+      <div>
+        <h2>
+          <Link to={`/${tool.id}`}>
+            <p className=" pb-2 text-center text-lg text-gray-950 hover:cursor-pointer">
+              {tool.name}
+            </p>
+          </Link>
+        </h2>
+        <div className="flex justify-evenly p-4 pt-2">
+          {tool.borrow === true ? (
+            <button className={`${tileButtons} `}> Borrow </button>
+          ) : (
+            ""
+          )}
+          {tool.rent === true ? (
+            <button className={tileButtons}> Rent </button>
+          ) : (
+            ""
+          )}
+          {tool.purchase === true ? (
+            <button className={tileButtons}> Purchase </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );

@@ -20,10 +20,13 @@ export function Home() {
   );
 
   return (
-    <div className="flex flex-wrap justify-center bg-white p-4 md:justify-between">
-      {tools.map((tool) => (
-        <ToolTile key={tool.id} tool={tool} />
-      ))}
+    <div className="m-6 bg-white">
+      <div className="mb-3">Navbar</div>
+      <div className="h-full w-full gap-4  bg-white md:grid md:grid-cols-6">
+        {tools.map((tool) => (
+          <ToolTile key={tool.id} tool={tool} />
+        ))}
+      </div>
     </div>
   );
 }
