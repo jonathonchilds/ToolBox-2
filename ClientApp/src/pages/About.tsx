@@ -1,14 +1,12 @@
 import React from "react";
-import backgroundImg from "../images/pointy-glove-guy.jpg";
-import logo from "../images/logo.png";
 import { button } from "../styling/tailwindClasses";
 
 export default function About() {
   return (
     <div className="h-full w-full">
       <div className="flex items-center justify-center p-10">
-        <div className="relative mx-auto w-full max-w-[400px] rounded-lg border-4 border-gray-50 bg-secondary-400 shadow-lg">
-          <div className="py-14 text-center">
+        <div className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-6 shadow-xl">
+          <div className="p-8 text-center">
             <h1 className=" text-xl">Welcome to ToolBox!</h1>
           </div>
           <p className="px-6 text-center">

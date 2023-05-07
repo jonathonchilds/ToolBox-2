@@ -44,11 +44,20 @@ function Navbar() {
                 {isLoggedIn() ? <p> Welcome back, {user.firstName}!</p> : null}
               </div>
               <div className="mx-8 flex items-center gap-8">
-                {isLoggedIn() ? null : <Link to="/sign-in">Sign In</Link>}
-                {isLoggedIn() ? null : <Link to="/sign-up">Sign Up</Link>}
+                {isLoggedIn() ? null : (
+                  <Link to="/sign-in" className="hover:underline">
+                    Sign In
+                  </Link>
+                )}
+                {isLoggedIn() ? null : (
+                  <Link to="/sign-up" className="hover:underline">
+                    Sign Up
+                  </Link>
+                )}
                 {isLoggedIn() ? (
                   <a
                     href="/"
+                    className="hover:underline"
                     onClick={function (event) {
                       event.preventDefault();
                       handleLogout();
@@ -95,32 +104,44 @@ function Navbar() {
             </div>
           </div>
           <div className="ml-[30%] mr-2 flex flex-col gap-10 text-2xl">
-            <Link to="/" onClick={() => setIsMenuToggled(!isMenuToggled)}>
+            <Link
+              to="/"
+              className="hover:underline"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
               Home
             </Link>
-            <Link to="/about" onClick={() => setIsMenuToggled(!isMenuToggled)}>
+            <Link
+              to="/about"
+              className="hover:underline"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
               About
             </Link>
             <Link
               to="/add-a-tool"
+              className="hover:underline"
               onClick={() => setIsMenuToggled(!isMenuToggled)}
             >
               Add A Tool
             </Link>
             <Link
               to="/sign-in"
+              className="hover:underline"
               onClick={() => setIsMenuToggled(!isMenuToggled)}
             >
               Sign In
             </Link>
             <Link
               to="/sign-up"
+              className="hover:underline"
               onClick={() => setIsMenuToggled(!isMenuToggled)}
             >
               Sign Up
             </Link>
             <Link
               to="/checkout"
+              className="hover:underline"
               onClick={() => setIsMenuToggled(!isMenuToggled)}
             >
               Checkout

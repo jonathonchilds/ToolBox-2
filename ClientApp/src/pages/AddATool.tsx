@@ -5,6 +5,7 @@ import { useDropzone } from "react-dropzone";
 import { APIError, ToolType, UploadResponse } from "../types";
 import { authHeader } from "../auth";
 import { button } from "../styling/tailwindClasses";
+import { Carousel, initTE } from "tw-elements";
 
 export default function AddATool() {
   const [newTool, setNewTool] = useState<ToolType>({
@@ -141,7 +142,7 @@ export default function AddATool() {
               {errorMessage}
             </p>
           ) : null} */}
-          <h1 className=" align-items-center flex justify-center pb-4 text-2xl">
+          <h1 className=" align-items-center flex justify-center pb-4 text-xl">
             Add a Tool
           </h1>
           <p className="mb-4 flex flex-col pb-2">
@@ -154,6 +155,7 @@ export default function AddATool() {
               placeholder="Tool Name"
             />
           </p>
+
           <div className="mb-4 flex flex-col pb-6">
             <label>Can people borrow this tool (at no charge)?</label>
             <div className="flex w-full justify-around py-2">

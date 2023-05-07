@@ -37,7 +37,7 @@ const SearchInput = () => {
           />
         </div>
         <div>
-          <button className="flex items-center">Search</button>
+          <button className="flex items-center hover:underline">Search</button>
         </div>
       </div>
     </form>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import UnderConstruction from "../images/UnderConstruction.png";
 
 type Product = {
   id: string;
@@ -66,6 +67,11 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
   return (
     <div className="container mx-auto my-8 ">
       <h1 className="mb-8 text-2xl font-bold">Checkout Page</h1>
+      <img
+        alt="Under Construction"
+        src={UnderConstruction}
+        className="h-[50px] w-[140px]"
+      />
       <div className="grid grid-cols-2 gap-4">
         <div>
           <h2 className="mb-4 text-xl font-bold">Products</h2>
