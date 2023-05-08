@@ -12,7 +12,7 @@ function ToolTile({ tool }: { tool: ToolType }) {
       <div className=" h-[250px] w-[250px] overflow-hidden rounded-xl shadow-lg ">
         <Link to={`/${tool.id}`}>
           <img
-            className="h-full w-full object-cover hover:cursor-pointer"
+            className="h-full w-full object-cover transition duration-300 hover:brightness-110"
             src={tool.photoURL}
             alt={tool.name}
           />

@@ -11,18 +11,18 @@ export default function About() {
           </div>
           <p className="px-6 text-center">
             ToolBox is a concept app that I designed and built as an accessory
-            for community-building and the gig-economy.
+            for local communities.
             <br />
             <br />
             Users can sign-up and subsequently sign-in, giving them access to
             add tools.
             <br />
             <br />
-            Users are given the option to allow for their tools to be borrowed
-            at no charge, offered for rent, or for purchase.
+            Users can allow their tools to be borrowed, offered for rent, or
+            purchased.
             <br />
             <br />
-            When the user is logged-in, they may edit the tool details or delete
+            When the user is signed in they may edit the tool details or delete
             the tool from the app.
             <br />
             <br />
@@ -34,8 +34,9 @@ export default function About() {
             I constructed the backend using .NET 6 with ASP.NET.
             <br />
             <br />
-            I used a PostgreSQL database established via C# models by way of
-            EntityFrameworkCore.
+            I used a PostgreSQL database to store tools and users. This was
+            established via C# models by way of EntityFramework, and I utilized
+            a pashword hasher via EntityFramework for storing passwords.
             <br />
             <br />
             AspNetCore gives me the framework for my API&apos;s, with
@@ -56,10 +57,9 @@ export default function About() {
             also integrated a few helper API&apos;s for things like address
             fill-in and form drop-downs. <br />
             <br />
-            Please feel free to create an account, and be sure to view the app
-            on mobile as well as desktop - the menu&apos;s and navigation bar
-            are dynamic according to your screen size. &#40;As are a few other
-            features.&#41;
+            Please feel free to create an account and be sure to view the app on
+            mobile as well as desktop - various components are dynamic with
+            screen size.
             <br />
             <br />I hope you enjoy!
             <br />
