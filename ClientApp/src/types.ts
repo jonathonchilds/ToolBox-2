@@ -9,11 +9,11 @@ export type ToolType = {
   name: string;
   photoURL: string;
   rent: boolean;
-  rentPrice: number | null;
+  rentPrice: number | 0;
   borrow: boolean;
   purchase: boolean;
-  purchasePrice: number | null;
-  userId: number | null;
+  purchasePrice: number | 0;
+  userId: number | 0;
 };
 
 export type APIError = {

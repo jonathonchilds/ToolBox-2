@@ -8,18 +8,22 @@ import { formatPrice } from "../utilities/FormatPrice";
 import { authHeader, getUserId, isLoggedIn } from "../auth";
 import { button } from "../styling/tailwindClasses";
 
+interface ToolTileProps {
+  addToCart: (tool: ToolType) => void;
+}
+
 const NullTool: ToolType = {
   name: "",
   photoURL: "",
   rent: false,
-  rentPrice: 0 || null,
+  rentPrice: 0,
   borrow: false,
   purchase: false,
-  purchasePrice: 0 || null,
+  purchasePrice: 0,
   userId: 0,
 };
 
-export default function Tool() {
+export default function Tool({ addToCart }: ToolTileProps) {
   const [errorMessage, setErrorMessage] = useState("");
 
   async function loadOneTool(id?: string) {
@@ -63,6 +67,9 @@ export default function Tool() {
     }
   }
 
+  const handleAddToCart = () => {
+    addToCart(tool);
+  };
   return (
     <div className="flex flex-wrap justify-center p-14 md:flex md:flex-row">
       <img src={`${tool.photoURL}`} alt="Tool image" className="rounded" />
@@ -119,7 +126,10 @@ export default function Tool() {
             ""
           )}
           {tool.purchase && tool.purchasePrice ? (
-            <button className={button}> Purchase </button>
+            <button className={button} onClick={handleAddToCart}>
+              {" "}
+              Purchase{" "}
+            </button>
           ) : (
             ""
           )}

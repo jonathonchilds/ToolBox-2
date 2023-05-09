@@ -254,7 +254,9 @@ export default function AddATool() {
               {dropZoneMessage}
             </div>
           </div>
-          <button className={button}>Add Tool</button>
+          <div className="flex justify-center">
+            <button className={button}>Add Tool</button>
+          </div>
         </form>
       </div>
     </div>

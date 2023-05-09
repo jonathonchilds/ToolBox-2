@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./index.css";
 
@@ -14,21 +14,14 @@ import CheckoutPage from "./pages/Checkout";
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import EditTool from "./pages/EditTool";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-};
+import { ToolType } from "./types";
 
 function App() {
-  const products: Product[] = [
-    {
-      id: "test",
-      name: "Hammer",
-      price: 10.99,
-    },
-  ];
+  const [cartItems, setCartItems] = useState<ToolType[]>([]);
+
+  const addToolToCart = (tool: ToolType) => {
+    setCartItems((prevCartItems) => [...prevCartItems, tool]);
+  };
 
   return (
     <BrowserRouter>
@@ -40,11 +33,14 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/:id" element={<SingleToolDetails />} />
+        <Route
+          path="/:id"
+          element={<SingleToolDetails addToCart={addToolToCart} />}
+        />
         <Route path="/tools/:id/edit" element={<EditTool />} />
         <Route
           path="/checkout"
-          element={<CheckoutPage products={products} />}
+          element={<CheckoutPage products={cartItems} />}
         />
       </Routes>
     </BrowserRouter>

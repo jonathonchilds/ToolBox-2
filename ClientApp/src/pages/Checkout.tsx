@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import UnderConstruction from "../images/UnderConstruction.png";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-};
+import { ToolType } from "src/types";
 
 type CartItem = {
-  product: Product;
+  product: ToolType;
   quantity: number;
 };
 
 type Props = {
-  products: Product[];
+  products: ToolType[];
 };
 
 const CheckoutPage: React.FC<Props> = ({ products }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [checkoutComplete, setCheckoutComplete] = useState(false);
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: ToolType) => {
     const existingCartItem = cartItems.find(
       (item) => item.product.id === product.id
     );
@@ -37,7 +32,7 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
     }
   };
 
-  const handleRemoveFromCart = (product: Product) => {
+  const handleRemoveFromCart = (product: ToolType) => {
     const existingCartItem = cartItems.find(
       (item) => item.product.id === product.id
     );
@@ -60,28 +55,32 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
   };
 
   const total = cartItems.reduce(
-    (acc, curr) => acc + curr.product.price * curr.quantity,
+    (acc, curr) => acc + curr.product.purchasePrice * curr.quantity,
     0
   );
 
   return (
     <div className="container mx-auto my-8 ">
-      <h1 className="mb-8 text-2xl font-bold">Checkout Page</h1>
-      <img
-        alt="Under Construction"
-        src={UnderConstruction}
-        className="h-[50px] w-[140px]"
-      />
+      <h1 className="mb-8 text-center text-2xl font-bold">Checkout Page</h1>
+      <div className="mb-8 flex justify-center">
+        <img
+          alt="Under Construction"
+          src={UnderConstruction}
+          className="h-[50px] w-[140px]"
+        />
+      </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <h2 className="mb-4 text-xl font-bold">Products</h2>
+          <h2 className="mb-4 text-center text-xl font-bold">Tools</h2>
           <ul>
             {products.map((product) => (
               <li key={product.id} className="mb-4">
-                <div className="flex items-center justify-between">
+                <div className="mr-20 flex items-center justify-between">
                   <div>
                     <p className="font-bold">{product.name}</p>
-                    <p className="text-gray-500">${product.price.toFixed(2)}</p>
+                    <p className="text-gray-500">
+                      ${product.purchasePrice.toFixed(2)}
+                    </p>
                   </div>
                   <button
                     className="rounded bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700"
@@ -105,7 +104,7 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
                       <div>
                         <p className="font-bold">{cartItem.product.name}</p>
                         <p className="text-gray-500">
-                          ${cartItem.product.price.toFixed(2)} x{" "}
+                          ${cartItem.product.purchasePrice.toFixed(2)} x{" "}
                           {cartItem.quantity}
                         </p>
                       </div>
