@@ -204,7 +204,9 @@ export default function SignIn() {
               </div>
             </div>
           </div>
-          <button className={button}>Sign Up</button>
+          <div className="flex justify-center">
+            <button className={button}>Sign Up</button>
+          </div>
           <p className="mt-8 text-center">
             Already a member?{" "}
             <Link to="/sign-in" className="underline">

@@ -91,7 +91,9 @@ export default function SignIn() {
               onChange={handleStringFieldChange}
             />
           </p>
-          <button className={button}>Sign In</button>
+          <div className="flex justify-center">
+            <button className={button}>Sign In</button>
+          </div>
           <p className="mt-3 flex items-center">
             <input className="mr-2" type="checkbox" />
             Remember Me
