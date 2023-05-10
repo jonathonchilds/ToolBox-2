@@ -204,7 +204,7 @@ export default function SignIn() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="mt-8 flex justify-center">
             <button className={button}>Sign Up</button>
           </div>
           <p className="mt-8 text-center">
