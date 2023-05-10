@@ -62,13 +62,7 @@ const CheckoutPage: React.FC<Props> = ({ products }) => {
   return (
     <div className="container mx-auto my-8 ">
       <h1 className="mb-8 text-center text-2xl font-bold">Checkout Page</h1>
-      <div className="mb-8 flex justify-center">
-        <img
-          alt="Under Construction"
-          src={UnderConstruction}
-          className="h-[50px] w-[140px]"
-        />
-      </div>
+
       <div className="grid grid-cols-2 gap-4">
         <div>
           <h2 className="mb-4 text-center text-xl font-bold">Tools</h2>

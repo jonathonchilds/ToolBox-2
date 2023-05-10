@@ -27,8 +27,8 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Home addToCart={addToolToCart} />} />
+        <Route path="/search" element={<Search addToCart={addToolToCart} />} />
         <Route path="/add-a-tool" element={<AddATool />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />

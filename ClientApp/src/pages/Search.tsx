@@ -3,7 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import ToolTile from "../components/ToolTile";
 import { ToolType } from "../types";
 
-function Search() {
+interface ToolTileProps {
+  addToCart: (tool: ToolType) => void;
+}
+
+function Search({ addToCart }: ToolTileProps) {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
   const [tools, setTools] = useState<ToolType[]>([]);
@@ -21,7 +25,7 @@ function Search() {
   return (
     <div className="flex flex-wrap  p-4">
       {tools.map((tool) => (
-        <ToolTile key={tool.id} tool={tool} />
+        <ToolTile key={tool.id} tool={tool} addToCart={addToCart} />
       ))}
     </div>
   );

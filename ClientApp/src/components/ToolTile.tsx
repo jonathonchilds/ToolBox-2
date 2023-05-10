@@ -2,8 +2,17 @@ import React from "react";
 import { ToolType } from "../types";
 import { Link } from "react-router-dom";
 
-function ToolTile({ tool }: { tool: ToolType }) {
+interface ToolTileProps {
+  tool: ToolType;
+  addToCart: (tool: ToolType) => void;
+}
+
+function ToolTile({ tool, addToCart }: ToolTileProps) {
   const tileButtons = "rounded-lg bg-transparent px-2 m-2 text-black shadow-md";
+
+  const handleAddToCart = () => {
+    addToCart(tool);
+  };
 
   return (
     <div className="flex flex-wrap justify-center rounded-2xl ">
@@ -31,12 +40,19 @@ function ToolTile({ tool }: { tool: ToolType }) {
             ""
           )}
           {tool.rent === true ? (
-            <button className={tileButtons}> Rent </button>
+            <Link to={"/checkout"}>
+              <button className={tileButtons}> Rent </button>
+            </Link>
           ) : (
             ""
           )}
           {tool.purchase === true ? (
-            <button className={tileButtons}> Purchase </button>
+            <Link to={"/checkout"}>
+              <button className={tileButtons} onClick={handleAddToCart}>
+                {" "}
+                Purchase{" "}
+              </button>
+            </Link>
           ) : (
             ""
           )}

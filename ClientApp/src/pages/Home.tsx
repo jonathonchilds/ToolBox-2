@@ -6,7 +6,11 @@ import ToolTile from "../components/ToolTile";
 import { ToolType } from "../types";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-export function Home() {
+interface ToolTileProps {
+  addToCart: (tool: ToolType) => void;
+}
+
+export function Home({ addToCart }: ToolTileProps) {
   const [filterText, setFilterText] = useState("");
   const isAboveMediumScreens = useMediaQuery("(min-width: 1425px)");
   const { data: tools = [] } = useQuery<ToolType[]>(
@@ -78,7 +82,7 @@ export function Home() {
       )}
       <div className="flex h-full w-full grid-cols-4 flex-wrap gap-x-4 gap-y-14 bg-white sm:grid sm:grid-cols-2 lg:grid xl:grid xl:grid-cols-5 2xl:grid 2xl:grid-cols-6">
         {tools.map((tool) => (
-          <ToolTile key={tool.id} tool={tool} />
+          <ToolTile key={tool.id} tool={tool} addToCart={addToCart} />
         ))}
       </div>
     </div>
