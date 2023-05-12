@@ -12,13 +12,13 @@ namespace ToolBox.Models
 
         public bool Rent { get; set; }
 
-        public int? RentPrice { get; set; }
+        public decimal? RentPrice { get; set; }
 
         public bool Borrow { get; set; }
 
         public bool Purchase { get; set; }
 
-        public int? PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
         public int UserId { get; set; }
 

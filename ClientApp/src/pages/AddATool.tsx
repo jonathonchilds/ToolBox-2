@@ -19,7 +19,7 @@ export default function AddATool() {
     userId: 0,
   });
 
-  const [errorMessage, setErrorMessage] = useState<Record<string, string[]>>();
+  const [errorMessage, setErrorMessage] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
   function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -105,8 +105,8 @@ export default function AddATool() {
     onSuccess: function () {
       navigate("/");
     },
-    onError: function (apiError: APIError) {
-      console.log(Object.values(apiError.errors));
+    onError: function (error: APIError) {
+      setErrorMessage(Object.values(error.errors).join(""));
     },
   });
 
@@ -254,6 +254,7 @@ export default function AddATool() {
               {dropZoneMessage}
             </div>
           </div>
+          <div>{errorMessage ? <div>{errorMessage}</div> : null}</div>
           <div className="flex justify-center">
             <button className={button}>Add Tool</button>
           </div>

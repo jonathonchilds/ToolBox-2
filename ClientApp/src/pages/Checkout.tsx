@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import UnderConstruction from "../images/UnderConstruction.png";
 import { ToolType } from "src/types";
 
 type CartItem = {
