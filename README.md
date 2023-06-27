@@ -1,8 +1,7 @@
 # ToolBox
 
-Herein lies my capstone application: Toolbox!
+ToolBox is my capstone application - my final project from my bootcamp. 
+It's a full stack application, for which I created every aspect - from the UI, to the API, to the PostgreSQL (SQL) database.
+Heavy use of TypeScript, React, CSS 3, Tailwind CSS, C#, .NET Framework, .NET Core, Entity Framework
 
-This is a gig-economy platform wherein users may borrow, rent, or buy tools.
-Users may also offer their own tools up for borrowing, renting, or purchasing!
 
-This app has been lovingly created by me, with a C#/.net backend, and a Typescript, React, & Tailwind front end.
