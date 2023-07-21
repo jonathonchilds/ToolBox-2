@@ -10,56 +10,35 @@ export default function About() {
             <h1 className=" text-xl">Welcome to ToolBox!</h1>
           </div>
           <p className="px-6 text-center">
-            ToolBox is a concept app that I designed and built as an accessory
-            for local communities.
+            I hand-coded every pixel of this sensational full stack application.
             <br />
             <br />
-            Users can sign-up and subsequently sign-in, giving them access to
-            add tools.
+            You can sign-up and subsequently sign-in, giving you the ability to
+            add tools for all to see! When you're signed in, you'll be greeted 
+            with a nice welcome message and you'll gain access to user priviledges.
             <br />
             <br />
-            Users can allow their tools to be borrowed, offered for rent, or
-            purchased.
+            (To reiterate, this is not just a concept. I'm paying for the PostgreSQL database
+            and the hosting - so go ahead!) Your password will be hashed via ASP.NET's 
+            built-in password hashing capabilities, making it up to date with modern standards.
             <br />
             <br />
-            When the user is signed in they may edit the tool details or delete
-            the tool from the app.
-            <br />
-            <br />
-            Authentication is used to ensure that the user who is logged in is
+            As a user, you may list tools for borrow, for rent, or allow them to be purchased.
+            While signed in and your session is active (via sessions controller), the tools
+            that YOU have added will be rendered with buttons to edit or delete those tools.
+            (Authentication is used to ensure that the user who is logged in is
             the user who created the tool - this is verified on the backend
-            using JWT tokens.
+            using JWT tokens.)
             <br />
             <br />
-            I constructed the backend using .NET 6 with ASP.NET.
+            The entire app enjoys type-safety by way of TypeScript. 
+            React gives us a nice user experience, allowing for snappy rendering and 
+            some niceties such as drag-and-drop adding of your pictures. 
             <br />
             <br />
-            I used a PostgreSQL database to store tools and users. This was
-            established via C# models by way of EntityFramework, and I utilized
-            a pashword hasher via EntityFramework for storing passwords.
+            Last but not least, I used Tailwind CSS for styling, and the app features
+            a completely different UI for mobile usage!
             <br />
-            <br />
-            AspNetCore gives me the framework for my API&apos;s, with
-            Microsoft&apos;s JWT bearer for user authorization.
-            <br />
-            <br />
-            The front-end of this app was built with TypeScript, React, HTML5,
-            and Tailwind CSS.
-            <br />
-            <br />
-            I decided to learn Tailwind for this project specifically and
-            I&apos;ve thoroughly enjoyed its quick, simple, yet powerful design.
-            I can appreciate the simplicity meshed with total control and
-            customization features.
-            <br />
-            <br />
-            React makes use of a few libraries for assistance, and I&apos;ve
-            also integrated a few helper API&apos;s for things like address
-            fill-in and form drop-downs. <br />
-            <br />
-            Please feel free to create an account and be sure to view the app on
-            mobile as well as desktop - various components are dynamic with
-            screen size.
             <br />
             <br />I hope you enjoy!
             <br />
