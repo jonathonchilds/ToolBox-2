@@ -10,9 +10,6 @@ using ToolBox.Models;
 
 namespace ToolBox.Controllers
 {
-    // All of these routes will be at the base URL:     /api/Tools
-    // That is what "api/[controller]" means below. It uses the name of the controller
-    // in this case ToolsController to determine the URL
     [Route("api/[controller]")]
     [ApiController]
     public class ToolsController : ControllerBase
@@ -70,13 +67,7 @@ namespace ToolBox.Controllers
             return tool;
         }
 
-        // PUT: api/Tools/5
-        //
-        // Update an individual tool with the requested id. The id is specified in the URL
-        // In the sample URL above it is the `5`. The "{id} in the [HttpPut("{id}")] is what tells dotnet
-        // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
-        //
-        // In addition the `body` of the request is parsed and then made available to us as a Tool
+        // the `body` of the request is parsed and then made available to us as a Tool
         // variable named tool. The controller matches the keys of the JSON object the client
         // supplies to the names of the attributes of our Tool POCO class. This represents the
         // new values for the record.

@@ -18,9 +18,12 @@ export default function AddATool() {
     purchasePrice: 0,
     userId: 0,
   });
-
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  });
 
   function _stringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTool({ ...newTool, [event.target.name]: event.target.value });
@@ -31,10 +34,6 @@ export default function AddATool() {
     const fileToUpload = acceptedFiles[0];
     uploadFileMutation.mutate(fileToUpload);
   }
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: onDropFile,
-  });
 
   async function uploadFile(fileToUpload: File) {
     // Create a formData object so we can send this
@@ -64,10 +63,8 @@ export default function AddATool() {
   const uploadFileMutation = useMutation(uploadFile, {
     onSuccess: function (apiResponse: UploadResponse) {
       const url = apiResponse.url;
-
       setNewTool({ ...newTool, photoURL: url });
     },
-
     onError: function (apiError: APIError) {
       console.log(Object.values(apiError.errors));
     },
@@ -100,7 +97,6 @@ export default function AddATool() {
     }
   }
 
-  const navigate = useNavigate();
   const createNewTool = useMutation(submitNewTool, {
     onSuccess: function () {
       navigate("/");
@@ -110,13 +106,13 @@ export default function AddATool() {
     },
   });
 
-  async function _formSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     createNewTool.mutate(newTool);
   }
 
   function handlePriceFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const priceInCents = Math.round(parseFloat(event.target.value) * 100);
+    const priceInCents = parseFloat(event.target.value);
     setNewTool({
       ...newTool,
       [event.target.name]: priceInCents,
@@ -134,7 +130,7 @@ export default function AddATool() {
     <div className="h-full w-full">
       <div className="flex items-center justify-center p-10 ">
         <form
-          onSubmit={_formSubmit}
+          onSubmit={handleFormSubmit}
           className="mx-auto w-full max-w-[415px] rounded bg-slate-100 p-10 shadow-xl"
         >
           {/* {errorMessage.email[0] ? (

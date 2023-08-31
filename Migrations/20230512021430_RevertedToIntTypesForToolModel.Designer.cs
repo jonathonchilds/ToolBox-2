@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ToolBox.Models;
@@ -9,9 +10,10 @@ using ToolBox.Models;
 namespace ToolBox.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230512021430_RevertedToIntTypesForToolModel")]
+    partial class RevertedToIntTypesForToolModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,14 +41,14 @@ namespace ToolBox.Migrations
                     b.Property<bool>("Purchase")
                         .HasColumnType("boolean");
 
-                    b.Property<decimal?>("PurchasePrice")
-                        .HasColumnType("numeric");
+                    b.Property<int?>("PurchasePrice")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("Rent")
                         .HasColumnType("boolean");
 
-                    b.Property<decimal?>("RentPrice")
-                        .HasColumnType("numeric");
+                    b.Property<int?>("RentPrice")
+                        .HasColumnType("integer");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
