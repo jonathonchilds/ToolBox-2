@@ -32,7 +32,7 @@ namespace ToolBox.Models
 
             if (!optionsBuilder.IsConfigured)
             {
-                var databaseURL = Environment.GetEnvironmentVariable("DATABASE_URL");
+                var databaseURL = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_MAROON_URL");
                 var defaultConnectionString = $"server=localhost;database={DEVELOPMENT_DATABASE_NAME}";
 
                 var conn = databaseURL != null ? ConvertPostConnectionToConnectionString(databaseURL) : defaultConnectionString;
