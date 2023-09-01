@@ -14,30 +14,32 @@ export default function About() {
             <br />
             <br />
             You can sign-up and subsequently sign-in, giving you the ability to
-            add tools for all to see! When you're signed in, you'll be greeted 
-            with a nice welcome message and you'll gain access to user priviledges.
+            add tools for all to see! When you&apos;re signed in, you&apos;ll be
+            greeted with a nice welcome message and you&apos;ll gain access to
+            user priviledges.
             <br />
             <br />
-            (To reiterate, this is not just a concept. I'm paying for the PostgreSQL database
-            and the hosting - so go ahead!) Your password will be hashed via ASP.NET's 
-            built-in password hashing capabilities, making it up to date with modern standards.
+            (To reiterate, this is not just a concept. I&apos;m paying for the
+            PostgreSQL database and the hosting - so go ahead!) Your password
+            will be hashed via ASP.NET&apos;s built-in password hashing
+            capabilities, making it up to date with modern standards.
             <br />
             <br />
-            As a user, you may list tools for borrow, for rent, or allow them to be purchased.
-            While signed in and your session is active (via sessions controller), the tools
-            that YOU have added will be rendered with buttons to edit or delete those tools.
-            (Authentication is used to ensure that the user who is logged in is
-            the user who created the tool - this is verified on the backend
-            using JWT tokens.)
+            As a user, you may list tools for borrow, for rent, or allow them to
+            be purchased. While signed in and your session is active (via
+            sessions controller), the tools that YOU have added will be rendered
+            with buttons to edit or delete those tools. (Authentication is used
+            to ensure that the user who is logged in is the user who created the
+            tool - this is verified on the backend using JWT tokens.)
             <br />
             <br />
-            The entire app enjoys type-safety by way of TypeScript. 
-            React gives us a nice user experience, allowing for snappy rendering and 
-            some niceties such as drag-and-drop adding of your pictures. 
+            The entire app enjoys type-safety by way of TypeScript. React gives
+            us a nice user experience, allowing for snappy rendering and some
+            niceties such as drag-and-drop adding of your pictures.
             <br />
             <br />
-            Last but not least, I used Tailwind CSS for styling, and the app features
-            a completely different UI for mobile usage!
+            Last but not least, I used Tailwind CSS for styling, and the app
+            features a completely different UI for mobile usage!
             <br />
             <br />
             <br />I hope you enjoy!
